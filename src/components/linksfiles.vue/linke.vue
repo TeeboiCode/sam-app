@@ -27,6 +27,28 @@
     <router-link class="btn btn-success" to="/taskRegister" role="button"
       >Register-Section</router-link
     >
+    <!-- <router-link
+      class="btn btn-success"
+      to="/taskAdditionalInfoForm"
+      role="button"
+      >Additional-Info</router-link
+    >
+    <router-link
+      class="btn btn-success"
+      to="/taskProfilePhotoUpload"
+      role="button"
+      >Profile
+    </router-link>
+    <router-link
+      class="btn btn-success"
+      to="/taskPersonalDetailsForm"
+      role="button"
+      >Personal-Details</router-link
+    ><router-link class="btn btn-success" to="/taskPaymentForm" role="button"
+      >Payment Form</router-link
+    ><router-link class="btn btn-success" to="/taskStepIndicator" role="button"
+      >Step Indicator</router-link
+    > -->
   </div>
 </template>
 
