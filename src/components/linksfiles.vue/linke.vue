@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pt-4 d-flex gap-3 justify-content-center align-items-center bg-light border-1 border-bottom"
+    class="container-fluid links pt-4 d-flex gap-3  align-items-center bg-light border-1 border-bottom"
   >
     <router-link class="btn btn-warning" to="/" role="button">Home</router-link>
     <router-link
@@ -54,4 +54,8 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+.links {
+  border: 1px solid black;
+}
+</style>

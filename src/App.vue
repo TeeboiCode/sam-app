@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid p-0">
+  <div class="container-fluid border-1 p-0">
     <linkeVue />
     <router-view />
   </div>
@@ -9,4 +9,6 @@
 import linkeVue from "./components/linksfiles.vue/linke.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
