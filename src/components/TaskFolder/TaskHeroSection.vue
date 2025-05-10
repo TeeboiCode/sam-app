@@ -7,7 +7,7 @@
             <img
               src="../../assets/styles/images/best e-learning.png"
               alt="text logo best e-learning"
-              class="img-fluid hero-logo"
+              class="img-fluid hero-text-logo"
             />
           </div>
           <h1
@@ -190,6 +190,12 @@ export default {
   z-index: 2;
 }
 
+.hero-section .hero-text-logo {
+  width: 92%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .hero-section h1 {
   animation: fadeInDown-c0a1d4d8 1s ease-out;
   color: #262626;
@@ -295,6 +301,16 @@ export default {
   .hero-img-container{
     display: none !important;
   }
+
+  .hero-section .hero-text-logo {
+  width: 100%;
+  height: auto;
+  
+  margin-bottom: 10px;
+  object-fit: contain;
+  /* padding: 0 10px; */
+}
+
 }
 
 @media (min-width: 576px) {
