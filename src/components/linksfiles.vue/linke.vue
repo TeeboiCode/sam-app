@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pt-4 d-flex gap-3 justify-content-center align-items-center bg-light border-1 border-bottom"
+    class="pt-4 d-flex gap-3 container-fluid justify-content-center align-items-center bg-light border-1 border-bottom"
   >
     <router-link class="btn btn-warning" to="/" role="button">Home</router-link>
     <router-link
