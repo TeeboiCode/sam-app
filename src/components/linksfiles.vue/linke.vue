@@ -54,4 +54,8 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+.links {
+  border: 1px solid black;
+}
+</style>
