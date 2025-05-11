@@ -1,5 +1,6 @@
 <template>
-  <div class="container-fluid border-1 p-0">
+  <div style="width: 100%; min-width: 100%; margin: 0; padding: 0; border:1px solid black;">
+
     <linkeVue />
     <router-view />
   </div>
@@ -10,5 +11,7 @@ import linkeVue from "./components/linksfiles.vue/linke.vue";
 </script>
 
 <style scoped>
-
+  /* .container-fluid{
+    width: 100%;
+  } */
 </style>
