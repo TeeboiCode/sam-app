@@ -1,9 +1,400 @@
 <template>
-  <div>
-    <h2>Login</h2>
+  <div class="login-container justify-content-center py-5">
+    <div class="login-card">
+      <!-- Left Panel (Visual Branding Area) - Hidden on mobile -->
+      <div class="login-image-panel d-none d-md-block">
+        <!-- <div class="pattern-overlay"></div> -->
+      </div>
+
+      <!-- Right Panel (Login Form Section) -->
+      <div class="login-form-panel">
+        <div class="form-container">
+          <div class="text-center mb-4">
+            <div class="logo-image mb-3">
+              <img src="@/assets/brand-logo.png" alt="" />
+            </div>
+            <h2 class="text-purple mb-2">Welcome Back</h2>
+            <p class="text-muted">Sign in to continue your learning journey</p>
+          </div>
+
+          <form @submit.prevent="handleSubmit" class="fade-in">
+            <div class="mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  v-model="email"
+                  required
+                  placeholder="Email address"
+                />
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-user-tag"></i>
+                </span>
+                <select class="form-select" v-model="role" required>
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="student">
+                    <i class="fas fa-graduation-cap"></i> Student
+                  </option>
+                  <option value="parent">
+                    <i class="fas fa-user-friends"></i> Parent
+                  </option>
+                  <option value="tutor">
+                    <i class="fas fa-chalkboard-teacher"></i> Tutor
+                  </option>
+                  <option value="admin">
+                    <i class="fas fa-user-shield"></i> Admin
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex justify-content-end align-items-center mb-2">
+                <a href="#" class="text-purple small">Forgot password?</a>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  v-model="password"
+                  required
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember" />
+                <label class="form-check-label" for="remember">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <div class="d-grid mb-4">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                :disabled="loading"
+              >
+                <span
+                  v-if="loading"
+                  class="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                {{ loading ? "Signing in..." : "Sign In" }}
+              </button>
+            </div>
+
+            <div class="text-center">
+              <p class="mb-0">
+                Don't have an account?
+                <router-link to="/signup" class="text-purple"
+                  >Sign Up</router-link
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup></script>
+//
+<script>
+// export default {
+//   name: "Login",
+//   data() {
+//     return {
+//       email: "",
+//       password: "",
+//       role: "",
+//       loading: false,
+//     };
+//   },
+//   methods: {
+//     async handleSubmit() {
+//       this.loading = true;
+//       try {
+//         // TODO: Implement login logic
+//         console.log("Login attempt with:", {
+//           email: this.email,
+//           password: this.password,
+//           role: this.role,
+//         });
+//       } catch (error) {
+//         console.error("Login error:", error);
+//       } finally {
+//         this.loading = false;
+//       }
+//     },
+//   },
+// };
+//
+</script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--soft-purple);
+  /* border: 1px solid black;  */
+}
+
+.login-card {
+  width: 90%;
+  max-width: 1000px;
+  min-height: 600px;
+  display: flex;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background-color: var(--background-white);
+  margin-top: 2rem; /* Default margin for desktop */
+}
+
+/* Move login to top on mobile and iPad */
+@media (max-width: 1024px) {
+  .login-card {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    min-height: auto;
+  }
+}
+
+.login-image-panel {
+  flex: 3;
+  background-image: url("../../src/assets/qqq-min-o.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: none; /* Default: hide on mobile */
+}
+
+/* Show on desktop screens only */
+@media (min-width: 1025px) {
+  .login-image-panel {
+    display: block;
+    min-height: 400px;
+  }
+}
+
+/* iPad specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .login-image-panel {
+    display: block;
+    flex: 2;
+    min-height: 300px;
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+      45deg,
+      rgba(123, 14, 117, 0.3) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, rgba(123, 14, 117, 0.3) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(123, 14, 117, 0.3) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(123, 14, 117, 0.3) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  z-index: 1;
+}
+
+.login-form-panel {
+  flex: 3;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  background-color: var(--background-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--spacing-sm);
+}
+
+/* iPad specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-container {
+    max-width: 500px;
+  }
+
+  .form-select {
+    font-size: 0.7rem;
+  }
+
+  .form-select option {
+    font-size: 0.6rem;
+  }
+
+  /* Increase font sizes for interactive text */
+  .text-purple.small {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+    padding: 1.2rem 2.5rem;
+  }
+
+  .text-center p {
+    font-size: 1.2rem;
+  }
+
+  .text-center p a {
+    font-size: 1.3rem;
+  }
+
+  /* Increase Remember me text size */
+  .form-check-label {
+    font-size: 1.3rem;
+  }
+
+  /* Increase checkbox size */
+  .form-check-input {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  /* Add more padding to inputs */
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .mb-2 {
+    margin-bottom: 1.2rem !important;
+  }
+}
+
+.logo-image {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.logo-image img {
+  width: 100%;
+}
+
+.input-group-text {
+  background: var(--light-purple);
+  border: none;
+}
+
+.input-group-text i {
+  color: var(--royal-purple);
+}
+
+.form-control {
+  border: 2px solid var(--light-purple);
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  border-color: var(--royal-purple);
+  box-shadow: 0 0 0 3px var(--soft-purple);
+}
+
+.form-check-input:checked {
+  background-color: var(--royal-purple);
+  border-color: var(--royal-purple);
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .login-card {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .login-image-panel {
+    min-height: 200px;
+  }
+
+  .login-form-panel {
+    padding: var(--spacing-md);
+  }
+
+  /* Increase font sizes on mobile */
+  .form-control,
+  .form-select {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .input-group-text {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.form-control:focus::placeholder {
+  opacity: 0.5;
+}
+</style>
