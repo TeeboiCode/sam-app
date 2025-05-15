@@ -22,7 +22,7 @@
           <div
             class="d-flex gap-3 justify-content-center justify-content-xl-start"
           >
-            <router-link to="/register" class="btn btn-primary btn-lg hero-btn">
+            <router-link to="/register" class="btn btn-primary btn-lg hero-btn ">
               <i class="bi bi-arrow-right me-2"></i>
               Enroll Now
             </router-link>
@@ -47,7 +47,7 @@
                   data-target="500"
                   >0</span
                 >
-                <br />
+                <!-- <br /> -->
                 <span class="title">Students</span>
               </div>
               <div class="col-sm-4 col-12 py-5 py-sm-4 mx-0 p-0 hero-stat">
@@ -57,11 +57,11 @@
                   data-target="10"
                   >0</span
                 >
-                <br />
+                <!-- <br /> -->
                 <span class="title">Tutors</span>
               </div>
               <div
-                class="col-sm-4 col-12 py-5 py-sm-4 mx-0 p-0 border-0 hero-stat"
+                class="col-sm-4 col-12 py-5 py-sm-3 mx-0 p-0 border-0 hero-stat"
               >
                 <span
                   class="fig rounded-count"
@@ -69,8 +69,8 @@
                   data-target="95"
                   >0</span
                 >
-                <br />
-                <span class="title">Success Rate </span>
+                <!-- <br /> -->
+                <span class="title">Success Rate</span>
               </div>
             </div>
           </div>
@@ -238,37 +238,66 @@ export default {
   font-family: "Roboto Serif", serif;
   color: #262626;
   font-weight: 600;
-  font-size: 48px;
   background: var(--light-purple);
-  padding: var(--spacing-md);
+  padding: 0.75rem 1rem;
   border-radius: var(--border-radius-xl);
-  margin-top: 3.5rem;
-  line-height: 40px;
+  margin-top: 1.5rem;
+  display: flex !important;
+  text-align: center !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
-.hero-stats-container .hero-stat {
-  border-bottom: 1px solid gray;
-  border-right: none;
+.hero-stats-container .row {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  margin: 0 !important;
+  gap: 0.5rem !important;
 }
 
-.hero-section .title {
-  font-size: 24px !important;
+.hero-stats-container .col-sm-4 {
+  flex: 1 !important;
+  min-width: 0 !important;
+  padding: 0.5rem !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative;
 }
 
-.hero-img-container {
-  scale: 1.2 !important;
-  margin-top: 30px !important;
+.hero-stats-container .fig {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--royal-purple);
+  margin-bottom: 0.25rem !important;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  text-align: center !important;
+}
+
+.hero-stats-container .title {
+  font-size: 26px !important;
+  color: #262626;
+  font-weight: 500;
+  display: block;
+  margin: 0 !important;
+  text-align: center !important;
 }
 
 .rounded-count {
-  /* background-color: white; */
   border-radius: 50%;
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  text-align: center;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px;
+  height: 50px;
+  text-align: center !important;
+  margin-bottom: 0.25rem !important;
 }
 
 @keyframes fadeInDown {
@@ -295,21 +324,44 @@ export default {
 
 @media (max-width: 400px) {
   .hero-btn {
-    font-size: 16px !important;
-    padding: 13px !important;
+    font-size: 10px !important;
+    padding: 10px !important;
   }
   .hero-img-container{
     display: none !important;
   }
 
   .hero-section .hero-text-logo {
-  width: 100%;
-  height: auto;
-  
-  margin-bottom: 10px;
-  object-fit: contain;
-  /* padding: 0 10px; */
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
+
+  .hero-stats-container .title {
+    font-size: 11px !important; /* slightly smaller text */
+    margin-top: 2px !important;
+  }
 }
+
+@media (max-width: 768px) {
+  .hero-img-container {
+    display: none !important;
+  }
+
+  .hero-stats-container .col-sm-4:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: #666;
+  }
+
+  .hero-img-container{
+    display: none !important;
+  }
 
 }
 
@@ -336,6 +388,17 @@ export default {
     padding: 80px 0;
   }
 
+  .hero-btn {
+    font-size: 20px !important;
+    padding: 13px !important;
+  }
+
+  .hero-section .title {
+    font-size: 20px !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+
   .hero-section h1 {
     font-size: 3.2em;
   }
@@ -358,8 +421,46 @@ export default {
   }
 
   .rounded-count {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
   }
 }
+
+@media (max-width: 576px) {
+  .hero-stats-container {
+    padding: 0.25rem 0.5rem !important; 
+    margin-top: 1rem !important; 
+  }
+
+  .hero-btn {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  .hero-stats-container .col-sm-4 {
+    padding: 0.25rem 0.25rem !important; 
+  }
+
+  .hero-stats-container .fig {
+    font-size: 22px; /* slightly smaller */
+    margin-bottom: 0rem !important;
+  }
+
+  .hero-stats-container .title {
+    font-size: 11px !important; 
+    margin-top: 2px !important;
+  }
+
+  .rounded-count {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.15rem !important; 
+  }
+
+  .hero-stat {
+    gap: 0.2rem !important; /* tighter vertical spacing between elements */
+  }
+}
+
 </style>
