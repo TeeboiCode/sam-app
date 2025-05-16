@@ -4,6 +4,8 @@
   >
     <router-link class="btn btn-warning" to="/" role="button">Home</router-link>
 
+     <router-link class="btn btn-danger" to="/logo" role="button">Logos</router-link>
+
     <router-link class="btn btn-success" to="/taskRegister" role="button"
       >Register-Section</router-link
     >
