@@ -41,18 +41,10 @@
                 </span>
                 <select class="form-select" v-model="role" required>
                   <option value="" disabled selected>Select your role</option>
-                  <option value="student">
-                    <i class="fas fa-graduation-cap"></i> Student
-                  </option>
-                  <option value="parent">
-                    <i class="fas fa-user-friends"></i> Parent
-                  </option>
-                  <option value="tutor">
-                    <i class="fas fa-chalkboard-teacher"></i> Tutor
-                  </option>
-                  <option value="admin">
-                    <i class="fas fa-user-shield"></i> Admin
-                  </option>
+                  <option value="student">Student</option>
+                  <option value="parent">Parent</option>
+                  <option value="tutor">Tutor</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
             </div>

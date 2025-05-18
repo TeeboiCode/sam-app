@@ -9,6 +9,7 @@ import TaskPaymentForm from "../components/TaskFolder/TaskPaymentForm.vue";
 import TaskStepIndicator from "../components/TaskFolder/TaskStepIndicator.vue";
 import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -17,6 +18,12 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+  },
+
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
   },
 
   {
