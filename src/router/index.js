@@ -9,6 +9,8 @@ import TaskPaymentForm from "../components/TaskFolder/TaskPaymentForm.vue";
 import TaskStepIndicator from "../components/TaskFolder/TaskStepIndicator.vue";
 import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
+
+import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
 import Card from "../components/TaskFolder/TaskCard.vue"
 import Card2 from "../components/TaskFolder/TaskCard2.vue"
 
@@ -19,6 +21,12 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+  },
+
+  {
+    path: "/logo",
+    name: "TaskLogo",
+    component: TaskLogo,
   },
 
   {
