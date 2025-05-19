@@ -1,38 +1,41 @@
 <template>
   <div class="top-nav py-2">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
         <!-- Left Section -->
-        <div class="d-flex gap-4">
+        <div class="d-flex flex-column flex-sm-row gap-2 gap-lg-4 align-items-center text-center text-sm-start">
+          <!-- Phone Contact -->
           <div class="d-flex align-items-center">
             <i class="bi bi-telephone text-purple me-2"></i>
-            <span class="text-muted">+234 708 893 2240, +234 816 230 0241</span>
+            <span class="text-muted">
+              +234 708 893 2240, +234 816 230 0241
+            </span>
           </div>
+
+          <!-- Address -->
           <div class="d-flex align-items-center text-capitalize">
             <i class="bi bi-geo-alt text-purple me-2"></i>
             <span class="text-muted">
               <span class="d-none d-lg-inline">
-                2, Awoyelu street, jogbo off ibadan garage
+                2, Awoyelu Street, Jogbo off Ibadan Garage,
               </span>
-              ijebu-ode, ogun state, nigeria
+              Ijebu-Ode, Ogun State, Nigeria
             </span>
           </div>
         </div>
 
-        <!-- Right Section -->
-        
-        <div class="d-flex gap-3">
-
-          <a href="#" class="text-muted hover-purple">
+        <!-- Right Section: Social Icons -->
+        <div class="d-flex gap-3 justify-content-center">
+          <a href="#" class="text-muted hover-purple" aria-label="Twitter">
             <i class="bi bi-twitter"></i>
           </a>
-          <a href="#" class="text-muted hover-purple">
+          <a href="#" class="text-muted hover-purple" aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
-          <a href="#" class="text-muted hover-purple">
+          <a href="#" class="text-muted hover-purple" aria-label="LinkedIn">
             <i class="bi bi-linkedin"></i>
           </a>
-          <a href="#" class="text-muted hover-purple">
+          <a href="#" class="text-muted hover-purple" aria-label="Facebook">
             <i class="bi bi-facebook"></i>
           </a>
         </div>
@@ -60,11 +63,5 @@ export default {
 
 .hover-purple:hover {
   color: var(--royal-purple) !important;
-}
-
-@media (max-width: 768px) {
-  .top-nav {
-    display: none;
-  }
 }
 </style>

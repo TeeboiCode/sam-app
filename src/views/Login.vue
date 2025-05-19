@@ -2,7 +2,7 @@
   <div class="login-container justify-content-center py-5">
     <div class="login-card">
       <!-- Left Panel (Visual Branding Area) - Hidden on mobile -->
-      <div class="login-image-panel d-none d-md-block">
+      <div class="login-image-panel">
         <!-- <div class="pattern-overlay"></div> -->
       </div>
 
@@ -50,9 +50,6 @@
             </div>
 
             <div class="mb-4">
-              <div class="d-flex justify-content-end align-items-center mb-2">
-                <a href="#" class="text-purple small">Forgot password?</a>
-              </div>
               <div class="input-group">
                 <span class="input-group-text">
                   <i class="fas fa-lock"></i>
@@ -65,6 +62,11 @@
                   required
                   placeholder="Password"
                 />
+              </div>
+              <div
+                class="d-flex justify-content-end align-items-center mb-2 forget-password"
+              >
+                <a href="#" class="text-purple small">Forgot password?</a>
               </div>
             </div>
 
@@ -108,37 +110,29 @@
   </div>
 </template>
 
-//
-<script>
-// export default {
-//   name: "Login",
-//   data() {
-//     return {
-//       email: "",
-//       password: "",
-//       role: "",
-//       loading: false,
-//     };
-//   },
-//   methods: {
-//     async handleSubmit() {
-//       this.loading = true;
-//       try {
-//         // TODO: Implement login logic
-//         console.log("Login attempt with:", {
-//           email: this.email,
-//           password: this.password,
-//           role: this.role,
-//         });
-//       } catch (error) {
-//         console.error("Login error:", error);
-//       } finally {
-//         this.loading = false;
-//       }
-//     },
-//   },
-// };
-//
+<script setup>
+import { ref } from 'vue';
+
+const email = ref('');
+const password = ref('');
+const role = ref('');
+const loading = ref(false);
+
+async function handleSubmit() {
+  loading.value = true;
+  try {
+    // TODO: Implement login logic
+    console.log("Login attempt with:", {
+      email: email.value,
+      password: password.value,
+      role: role.value,
+    });
+  } catch (error) {
+    console.error("Login error:", error);
+  } finally {
+    loading.value = false;
+  }
+}
 </script>
 
 <style scoped>
@@ -149,7 +143,6 @@
   align-items: center;
   padding: var(--spacing-md);
   background-color: var(--soft-purple);
-  /* border: 1px solid black;  */
 }
 
 .login-card {
@@ -161,16 +154,7 @@
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   background-color: var(--background-white);
-  margin-top: 2rem; /* Default margin for desktop */
-}
-
-/* Move login to top on mobile and iPad */
-@media (max-width: 1024px) {
-  .login-card {
-    margin-top: 0;
-    margin-bottom: 2rem;
-    min-height: auto;
-  }
+  margin-top: 2rem;
 }
 
 .login-image-panel {
@@ -179,45 +163,6 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  display: none; /* Default: hide on mobile */
-}
-
-/* Show on desktop screens only */
-@media (min-width: 1025px) {
-  .login-image-panel {
-    display: block;
-    min-height: 400px;
-  }
-}
-
-/* iPad specific styles */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .login-image-panel {
-    display: block;
-    flex: 2;
-    min-height: 300px;
-    background-size: contain;
-    background-position: center top;
-  }
-}
-
-.pattern-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(
-      45deg,
-      rgba(123, 14, 117, 0.3) 25%,
-      transparent 25%
-    ),
-    linear-gradient(-45deg, rgba(123, 14, 117, 0.3) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(123, 14, 117, 0.3) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(123, 14, 117, 0.3) 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  z-index: 1;
 }
 
 .login-form-panel {
@@ -232,61 +177,8 @@
 
 .form-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   padding: var(--spacing-sm);
-}
-
-/* iPad specific styles */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .form-container {
-    max-width: 500px;
-  }
-
-  .form-select {
-    font-size: 0.7rem;
-  }
-
-  .form-select option {
-    font-size: 0.6rem;
-  }
-
-  /* Increase font sizes for interactive text */
-  .text-purple.small {
-    font-size: 1.2rem;
-  }
-
-  .btn {
-    font-size: 1.8rem;
-    padding: 1.2rem 2.5rem;
-  }
-
-  .text-center p {
-    font-size: 1.2rem;
-  }
-
-  .text-center p a {
-    font-size: 1.3rem;
-  }
-
-  /* Increase Remember me text size */
-  .form-check-label {
-    font-size: 1.3rem;
-  }
-
-  /* Increase checkbox size */
-  .form-check-input {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
-
-  /* Add more padding to inputs */
-  .mb-4 {
-    margin-bottom: 1.5rem !important;
-  }
-
-  .mb-2 {
-    margin-bottom: 1.2rem !important;
-  }
 }
 
 .logo-image {
@@ -302,13 +194,21 @@
   width: 100%;
 }
 
-.input-group-text {
-  background: var(--light-purple);
-  border: none;
+.form-select {
+  font-size: 0.7rem;
 }
 
-.input-group-text i {
-  color: var(--royal-purple);
+.form-select option {
+  font-size: 0.8rem;
+}
+
+.text-purple {
+  font-size: 1.6rem;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 .form-control {
@@ -321,9 +221,57 @@
   box-shadow: 0 0 0 3px var(--soft-purple);
 }
 
+.input-group-text {
+  background: var(--light-purple);
+  border: none;
+}
+
+.input-group-text i {
+  color: var(--royal-purple);
+}
+
+.forget-password {
+  margin-bottom: 1.2rem;
+}
+
+.text-purple.small {
+  font-size: 0.9rem;
+}
+
+.form-control:focus::placeholder {
+  opacity: 0.5;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.text-center p {
+  font-size: 0.95rem;
+}
+
+.text-center p a {
+  font-size: 1rem;
+}
+
+.form-check-label {
+  font-size: 0.9rem;
+  margin-left: -0.3rem;
+}
+
+.form-check-input {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
 .form-check-input:checked {
   background-color: var(--royal-purple);
   border-color: var(--royal-purple);
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
 }
 
 .fade-in {
@@ -342,27 +290,152 @@
 }
 
 /* Responsive styles */
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .login-card {
     width: 95%;
   }
+
+  .login-image-panel {
+    flex: 3;
+    background-image: url("../../src/assets/qqq-min-o.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: none;
+  }
+
+  .login-form-panel {
+    flex: 3;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    background-color: var(--background-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-sm);
+  }
+
+  .logo-image {
+    width: 230px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .logo-image img {
+    width: 100%;
+  }
+
+  .form-select {
+    font-size: 0.8rem;
+  }
+
+  .form-select option {
+    font-size: 0.9rem;
+  }
+
+  .form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  .form-control {
+    border: 2px solid var(--light-purple);
+    padding: 0.75rem 1rem;
+  }
+
+  .form-control:focus {
+    border-color: var(--royal-purple);
+    box-shadow: 0 0 0 3px var(--soft-purple);
+  }
+
+  .input-group-text {
+    background: var(--light-purple);
+    border: none;
+  }
+
+  .input-group-text i {
+    color: var(--royal-purple);
+  }
+
+  .forget-password {
+    margin-bottom: 1.2rem;
+  }
+
+  .text-purple.small {
+    font-size: 0.95rem;
+  }
+
+  .form-control:focus::placeholder {
+    opacity: 0.5;
+  }
+
+  .form-check-label {
+    font-size: 1rem;
+    margin-left: -0.3rem;
+  }
+
+  .form-check-input {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .form-check-input:checked {
+    background-color: var(--royal-purple);
+    border-color: var(--royal-purple);
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .text-center p {
+    font-size: 1rem;
+  }
+
+  .text-center p a {
+    font-size: 1.1rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
+/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
   .login-card {
     width: 100%;
     flex-direction: column;
   }
 
-  .login-image-panel {
-    min-height: 200px;
-  }
-
   .login-form-panel {
     padding: var(--spacing-md);
   }
 
-  /* Increase font sizes on mobile */
   .form-control,
   .form-select {
     font-size: 1.1rem;
@@ -378,15 +451,5 @@
     font-size: 1.1rem;
     padding: 0.8rem;
   }
-}
-
-/* Placeholder styling */
-.form-control::placeholder {
-  color: var(--text-muted);
-  opacity: 0.7;
-}
-
-.form-control:focus::placeholder {
-  opacity: 0.5;
 }
 </style>
