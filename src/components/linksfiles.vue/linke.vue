@@ -8,6 +8,14 @@
       >Register-Section</router-link
     >
 
+    <router-link class="btn btn-success" to="/card" role="button"
+      >card</router-link
+    >
+    
+    <router-link class="btn btn-success" to="/card2" role="button"
+      >card2</router-link
+    >
+
     <router-link class="btn btn-success" to="/notice" role="button"
       >notice</router-link
     >
