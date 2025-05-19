@@ -9,7 +9,10 @@ import TaskPaymentForm from "../components/TaskFolder/TaskPaymentForm.vue";
 import TaskStepIndicator from "../components/TaskFolder/TaskStepIndicator.vue";
 import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
+
 import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
+import Card from "../components/TaskFolder/TaskCard.vue"
+import Card2 from "../components/TaskFolder/TaskCard2.vue"
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -61,6 +64,16 @@ const routes = [
     name: "notice",
     component: notice,
   },
+  {
+    path: "/card",
+    name: "Card",
+    component: Card
+  },
+  {
+     path: "/card2",
+    name: "Card2",
+    component: Card2
+  }
 ];
 
 const router = createRouter({
