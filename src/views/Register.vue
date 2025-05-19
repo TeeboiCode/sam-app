@@ -30,13 +30,13 @@
                   </div>
                   <div class="step" :class="{ active: currentStep >= 2 }">
                     <div class="step-circle">
-                      <i class="bi bi-credit-card"></i>
+                      <i class="bi bi-person-fill-add"></i>
                     </div>
                     <div class="step-label">Payment</div>
                   </div>
                   <div class="step" :class="{ active: currentStep >= 3 }">
                     <div class="step-circle">
-                      <i class="bi bi-check-circle"></i>
+                      <i class="bi bi-credit-card"></i>
                     </div>
                     <div class="step-label">Complete</div>
                   </div>
@@ -45,23 +45,77 @@
               <!-- Step Indicators end -->
 
               <!-- Step 1: Personal Details -->
-              <!-- Step 1: Account Information -->
-              <PersonalDetailsForm
-                v-if="currentStep === 1"
-                v-model="formData"
-                @validation="(valid) => (isStep1Valid = valid)"
-              />
-              <div class="button-group">
-                <button
-                  type="button"
-                  @click="nextStep"
-                  :disabled="!isStep1Valid"
-                >
-                  Continue
-                </button>
+              <div v-if="currentStep === 1">
+                <PersonalDetailsForm
+                  v-model="formData"
+                  @validation="(valid) => (isStep1Valid = valid)"
+                />
+                <div class="button-group">
+                  <button
+                    class="w-100 btn btn-primary"
+                    type="button"
+                    @click="nextStep"
+                    :disabled="!isStep1Valid"
+                  >
+                    Continue
+                  </button>
+                </div>
               </div>
+              <!-- Step 1: Personal Details -->
 
-              <!-- Step 1: Account Information end -->
+              <!-- Step 2: Additional Information -->
+              <div v-if="currentStep === 2">
+                <AdditionalInfoForm
+                  v-model="formData"
+                  @validation="(valid) => (isStep2Valid = valid)"
+                />
+                <div
+                  class="button-group d-flex justify-content-between align-items-center"
+                >
+                  <button
+                    type="button"
+                    @click="prevStep"
+                    class="btn btn-primary"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    @click="nextStep"
+                    :disabled="!isStep2Valid"
+                    class="btn btn-primary"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </div>
+              <!-- Step 2: Additional Information end -->
+
+              <!-- Step 3: Payment -->
+              <div class="step" v-if="currentStep === 3">
+                <PaymentForm
+                  v-model="formData"
+                  @click-payment="(valid) => (isPaymentComplete = valid)"
+                />
+                <div
+                  class="button-group mt-4 d-flex justify-content-between align-items-center"
+                >
+                  <button
+                    type="button "
+                    class="btn btn-primary"
+                    @click="prevStep"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    :disabled="!isPaymentComplete"
+                  >
+                    Complete Registration
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -72,10 +126,14 @@
 
 <script setup>
 import PersonalDetailsForm from "../components/register/PersonalDetailsForm.vue";
+import AdditionalInfoForm from "../components/register/AdditionalInfoForm.vue";
+import PaymentForm from "../components/register/PaymentForm.vue";
 import { ref, watch } from "vue";
 
 const currentStep = ref(1);
 const isStep1Valid = ref(false);
+const isStep2Valid = ref(false);
+const isPaymentComplete = ref(false);
 
 const formData = ref({
   // Step 1: Personal Details
@@ -86,21 +144,17 @@ const formData = ref({
   password: "",
   confirmPassword: "",
   // Step 2: Additional Information
-  // maritalStatus: "",
-  // dob: "",
-  // state: "",
-  // localGovt: "",
-  // address: "",
-  // nationality: "",
-  // nin: "",
-  // department: "",
-  // gender: "",
-  // privacyPolicy: false,
+  maritalStatus: "",
+  dob: "",
+  state: "",
+  localGovt: "",
+  address: "",
+  nationality: "",
+  nin: "",
+  department: "",
+  gender: "",
+  privacyPolicy: false,
   // // Step 3: Payment
-  // paymentStatus: "pending",
-  // paypalOrderId: "",
-  // paymentDate: null,
-  // paymentAmount: 2.5,
 });
 
 const nextStep = () => {
@@ -121,6 +175,11 @@ watch(
   },
   { deep: true }
 );
+
+// <AdditionalInfoForm
+//                   v-model="formData"
+//                   @validation="(valid) => (isStep2Valid = valid)"
+//                 />
 </script>
 
 <style scoped>
