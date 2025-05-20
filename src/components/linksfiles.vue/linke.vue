@@ -22,6 +22,11 @@
       >notice</router-link
     >
 
+    <router-link class="btn btn-danger" to="/TaskAbout" role="button"
+      >About</router-link
+    >
+    
+
     <!-- <router-link
       class="btn btn-success"
       to="/taskAdditionalInfoForm"

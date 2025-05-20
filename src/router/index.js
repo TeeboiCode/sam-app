@@ -13,6 +13,7 @@ import Login from "../views/Login.vue";
 import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
 import Card from "../components/TaskFolder/TaskCard.vue"
 import Card2 from "../components/TaskFolder/TaskCard2.vue"
+import TaskAbout from "../components/TaskFolder/TaskAbout.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -73,7 +74,12 @@ const routes = [
      path: "/card2",
     name: "Card2",
     component: Card2
-  }
+  },
+  {
+     path: "/TaskAbout",
+    name: "TaskAbout",
+    component: TaskAbout
+  },
 ];
 
 const router = createRouter({
