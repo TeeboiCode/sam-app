@@ -12,7 +12,8 @@ import Login from "../views/Login.vue";
 
 import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
 import Card from "../components/TaskFolder/TaskCard.vue"
-import Card2 from "../components/TaskFolder/TaskCard2.vue"
+import Card2 from "../components/TaskFolder/TaskCard2.vue";
+import TaskUpComing from "../components/TaskFolder/TaskUpComing.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -73,7 +74,12 @@ const routes = [
      path: "/card2",
     name: "Card2",
     component: Card2
-  }
+  },
+  {
+    path: "/taskUpComing",
+    name: "TaskUpComing",
+    component: TaskUpComing
+  },
 ];
 
 const router = createRouter({
