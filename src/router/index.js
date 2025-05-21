@@ -9,6 +9,8 @@ import TaskPaymentForm from "../components/TaskFolder/TaskPaymentForm.vue";
 import TaskStepIndicator from "../components/TaskFolder/TaskStepIndicator.vue";
 import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
+import RaufTask from '../components/TaskFolder/RaufTask.vue'
 
 import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
 import Card from "../components/TaskFolder/TaskCard.vue"
@@ -24,6 +26,11 @@ const routes = [
     component: Login,
   },
 
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+     },
   {
     path: "/logo",
     name: "TaskLogo",
@@ -80,6 +87,11 @@ const routes = [
     name: "TaskUpComing",
     component: TaskUpComing
   },
+   {
+     path: "/RaufTask",
+    name: "RaufTask",
+    component: RaufTask
+  }
 ];
 
 const router = createRouter({
