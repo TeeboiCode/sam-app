@@ -14,8 +14,6 @@ import RaufTask from '../components/TaskFolder/RaufTask.vue'
 
 import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
 import Card from "../components/TaskFolder/TaskCard.vue"
-import Card2 from "../components/TaskFolder/TaskCard2.vue"
-import TaskAbout from "../components/TaskFolder/TaskAbout.vue";
 import Card2 from "../components/TaskFolder/TaskCard2.vue";
 import TaskUpComing from "../components/TaskFolder/TaskUpComing.vue";
 
@@ -85,10 +83,6 @@ const routes = [
     component: Card2
   },
   {
-     path: "/TaskAbout",
-    name: "TaskAbout",
-    component: TaskAbout
-  },
     path: "/taskUpComing",
     name: "TaskUpComing",
     component: TaskUpComing
