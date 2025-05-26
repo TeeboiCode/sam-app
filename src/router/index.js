@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
-import TaskRegister from "../components/TaskFolder/TaskRegister.vue";
 import TaskAdditionalInfoForm from "../components/TaskFolder/TaskAdditionalInfoForm.vue";
 import TaskProfilePhotoUpload from "../components/TaskFolder/TaskProfilePhotoUpload.vue";
 import TaskPersonalDetailsForm from "../components/TaskFolder/TaskPersonalDetailsForm.vue";
@@ -11,12 +10,10 @@ import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import RaufTask from "../components/TaskFolder/RaufTask.vue";
-import TaskAbout from "../components/TaskFolder/TaskAbout.vue";
+import LayoTask from "../components/TaskFolder/LayoTask.vue";
+import SeunTask from "../components/TaskFolder/SeunTask.vue";
+import KceeTask from "../components/TaskFolder/KceeTask.vue";
 
-import TaskLogo from "../components/TaskFolder/TaskLogo.vue";
-import Card from "../components/TaskFolder/TaskCard.vue";
-import Card2 from "../components/TaskFolder/TaskCard2.vue";
-import TaskUpComing from "../components/TaskFolder/TaskUpComing.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -31,17 +28,6 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
-  },
-  {
-    path: "/logo",
-    name: "TaskLogo",
-    component: TaskLogo,
-  },
-
-  {
-    path: "/taskRegister",
-    name: "TaskRegister",
-    component: TaskRegister,
   },
   {
     path: "/taskAdditionalInfoForm",
@@ -74,29 +60,24 @@ const routes = [
     component: notice,
   },
   {
-    path: "/card",
-    name: "Card",
-    component: Card,
-  },
-  {
-    path: "/card2",
-    name: "Card2",
-    component: Card2,
-  },
-  {
-    path: "/taskUpComing",
-    name: "TaskUpComing",
-    component: TaskUpComing,
-  },
-  {
-    path: "/RaufTask",
+    path: "/rauf",
     name: "RaufTask",
     component: RaufTask,
   },
   {
-    path: "/TaskAbout",
-    name: "TaskAbout",
-    component: TaskAbout,
+    path: "/seun",
+    name: "SeunTask",
+    component: SeunTask,
+  },
+  {
+    path: "/layo",
+    name: "LayoTask",
+    component: LayoTask,
+  },
+  {
+    path: "/kcee",
+    name: "KceeTask",
+    component: KceeTask,
   },
 ];
 
