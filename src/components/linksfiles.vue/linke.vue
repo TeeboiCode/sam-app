@@ -3,36 +3,15 @@
     class="pt-4 d-flex gap-3 container-fluid justify-content-center align-items-center bg-light border-1 border-bottom"
   >
     <router-link class="btn btn-warning" to="/" role="button">Home</router-link>
-
-     <router-link class="btn btn-danger" to="/logo" role="button">Logos</router-link>
-
-    <router-link class="btn btn-success" to="/taskRegister" role="button"
-      >Register-Section</router-link
-    >
-
-    <router-link class="btn btn-success" to="/card" role="button"
-      >card</router-link
-    >
     
-    <router-link class="btn btn-success" to="/card2" role="button"
-      >card2</router-link
-    >
-
     <router-link class="btn btn-success" to="/notice" role="button"
       >notice</router-link
     >
-    <router-link class="btn btn-success" to="/RaufTask" role="button"
-      >Rauf Task</router-link
-    >
 
-    <router-link class="btn btn-success" to="/taskUpComing" role="button"
-      >Task UpComing</router-link
-    >
-
-    <router-link class="btn btn-danger" to="/TaskAbout" role="button"
-      >About</router-link
-    >
-    
+    <router-link class="btn btn-primary" to="/rauf" role="button">Rauf Task</router-link>
+    <router-link class="btn btn-secondary" to="/layo" role="button">Layo Task</router-link>
+    <router-link class="btn btn-danger" to="/seun" role="button">Seun Task</router-link>
+    <router-link class="btn btn-dark" to="/kcee" role="button">Kcee Task</router-link>
 
     <!-- <router-link
       class="btn btn-success"
