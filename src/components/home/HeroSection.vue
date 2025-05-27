@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-center px-lg-5">
         <div class="col-xl-6 p-0 text-start">
-          <div class="d-flex justify-content-center animate__animated animate__fadeInLeft animate__slow">
+          <div class="d-flex justify-content-center animate__animated animate__fadeInRight animate__slow">
             <img
               src="../../assets/styles/images/best e-learning.png"
               alt="text logo best e-learning"
