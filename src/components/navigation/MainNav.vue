@@ -1,22 +1,25 @@
 <template>
-  <nav class="navbar navbar-light bg-white border-bottom py-1">
+  <nav class="navbar navbar-light bg-white border-bottom py-3">
     <div class="container d-flex justify-content-between align-items-center">
-      <!-- Logo -->
+      <!-- Logo (Mobile) -->
       <router-link class="navbar-brand d-lg-none d-sm-flex" to="/">
         <img src="/src/assets/Frame 1 1.png" alt="Logo" style="width: 150px" />
       </router-link>
 
-      <!-- Hamburger (mobile) -->
+      <!-- Hamburger (Mobile) -->
       <button class="d-lg-none navbar-toggler border-0 shadow-none" type="button" @click="toggleMobileMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Desktop nav -->
+      <!-- Desktop Navigation -->
       <div class="d-none d-lg-flex w-100 justify-content-between align-items-center">
+        <!-- Logo (Desktop) -->
+        <router-link class="navbar-brand" to="/">
+          <img src="/src/assets/Frame 1 1.png" alt="Logo" style="width: 150px" />
+        </router-link>
+
+        <!-- Nav Items -->
         <ul class="navbar-nav d-flex flex-row gap-3 align-items-center mb-0">
-          <router-link class="navbar-brand" to="/">
-        <img src="/src/assets/Frame 1 1.png" alt="Logo" style="width: 150px" />
-      </router-link>
           <li class="nav-item">
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
@@ -63,7 +66,7 @@
           </li>
         </ul>
 
-        <!-- Desktop Buttons -->
+        <!-- Auth Buttons -->
         <div class="d-flex gap-2">
           <router-link class="btn btn-primary" to="/register">Sign Up</router-link>
           <router-link class="btn btn-outline-secondary" to="/login">Login</router-link>
@@ -207,8 +210,17 @@ const toggleMobileMenu = () => {
   z-index: 1001;
   visibility: visible;
   opacity: 1;
+  animation: slidein 0.5s 1 linear;
 }
-
+@keyframes slidein {
+    from{
+      transform: translateX(-40px);
+      opacity:0;
+    }to{
+      transform: translateX(0px);
+      opacity:1;
+    }
+}
 /* Static dropdowns for mobile */
 .dropdown-menu.static {
   position: static;
