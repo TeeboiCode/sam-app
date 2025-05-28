@@ -165,13 +165,13 @@ const nextStep = () => {
 
 function handleSubmit() {
   nextStep();
-  console.log("Submitted form data:", formData.value);
+  console.log("Submitted form data new:", formData.value);
 }
 
 watch(
   formData,
   (newVal) => {
-    console.log("Updated formData:", newVal);
+    // console.log("Updated formData:", newVal);
   },
   { deep: true }
 );
