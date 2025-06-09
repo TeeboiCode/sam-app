@@ -129,6 +129,9 @@ import PersonalDetailsForm from "../components/register/PersonalDetailsForm.vue"
 import AdditionalInfoForm from "../components/register/AdditionalInfoForm.vue";
 import PaymentForm from "../components/register/PaymentForm.vue";
 import { ref, watch } from "vue";
+import {useUsersStore} from "@/stores/users";
+
+const usersStore = useUsersStore();
 
 const currentStep = ref(1);
 const isStep1Valid = ref(false);
@@ -165,7 +168,7 @@ const nextStep = () => {
 
 function handleSubmit() {
   nextStep();
-  console.log("Submitted form data new:", formData.value);
+  usersStore.registerUser(formData.value);
 }
 
 watch(

@@ -1,5 +1,23 @@
 {
-    "users": [
-      
-    ]
-  }
+  "users": [
+    {
+      "id": "37a6",
+      "firstName": "Dele",
+      "lastName": "Olua",
+      "email": "oluwaleyemicheal8225@gmail.com",
+      "phone": "09123456789",
+      "password": "123456789",
+      "confirmPassword": "123456789",
+      "maritalStatus": "Single",
+      "dob": "2025-05-08",
+      "state": "LG",
+      "localGovt": "lAGS",
+      "address": "Q3RTGHGN",
+      "nationality": "Nig",
+      "nin": "1234567898765432",
+      "department": "Commercial",
+      "gender": "male",
+      "privacyPolicy": true
+    }
+  ]
+}
