@@ -20,8 +20,4 @@ import linkeVue from "./components/linksfiles.vue/linke.vue";
 import NavigationVue from "./views/Navigation.vue";
 </script>
 
-<style scoped>
-/* .container-fluid{
-    width: 100%;
-  } */
-</style>
+<style scoped></style>

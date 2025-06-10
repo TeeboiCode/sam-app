@@ -1,23 +1,38 @@
 {
   "users": [
     {
-      "id": "37a6",
-      "firstName": "Dele",
-      "lastName": "Olua",
-      "email": "oluwaleyemicheal8225@gmail.com",
-      "phone": "09123456789",
-      "password": "123456789",
-      "confirmPassword": "123456789",
-      "maritalStatus": "Single",
-      "dob": "2025-05-08",
-      "state": "LG",
-      "localGovt": "lAGS",
-      "address": "Q3RTGHGN",
-      "nationality": "Nig",
-      "nin": "1234567898765432",
-      "department": "Commercial",
+      "id": "21ec",
+      "firstName": "Oluwaleye",
+      "lastName": "Taiwo",
+      "email": "oluwaleyetaiwo8225@gmail.com",
+      "phone": "08135441945",
+      "password": "fgtrfdcsxdfv",
+      "confirmPassword": "fgtrfdcsxdfv",
+      "maritalStatus": "Married",
+      "dob": "2025-06-07",
+      "state": "Ekiti",
+      "localGovt": "Ijero",
+      "address": "qwdqwd",
+      "nationality": "Nigeria",
+      "nin": "123456789009876543",
+      "department": "Science",
       "gender": "male",
+      "role": "student",
       "privacyPolicy": true
+    }
+  ],
+  "login": [
+    {
+      "id": "8fc0",
+      "email": "oluwaleyetaiwo8225@gmail.com",
+      "password": "fgtrfdcsxdfv",
+      "role": "student"
+    },
+    {
+      "id": "734a",
+      "email": "oluwaleyetaiwo8225@gmail.com",
+      "password": "fgtrfdcsxdfv",
+      "role": "student"
     }
   ]
 }

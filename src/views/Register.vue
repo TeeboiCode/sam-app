@@ -1,122 +1,133 @@
 <template>
-  <div
-    class="register-container d-flex justify-content-center align-items-center overflow-hidden"
-  >
-    <div class="container">
-      <div
-        class="row justify-content-center align-items-center min-vh-100 py-5"
-      >
-        <div class="col-md-8 col-lg-6">
-          <div class="register-card bg-white rounded-4 shadow">
-            <div class="text-center mb-4">
-              <div class="icon-circle mb-3">
-                <i class="bi bi-person-plus text-purple"></i>
+  <div class="register">
+    <div
+      class="register-container d-flex justify-content-center align-items-center overflow-hidden"
+    >
+      <div class="container">
+        <div
+          class="row justify-content-center align-items-center min-vh-100 py-5"
+        >
+          <div class="col-md-8 col-lg-6">
+            <div class="register-card bg-white rounded-4 shadow">
+              <div class="text-center mb-4">
+                <div class="icon-circle mb-3">
+                  <i class="bi bi-person-plus text-purple"></i>
+                </div>
+                <h2 class="text-purple mb-2">Create Account</h2>
+                <p class="text-muted">
+                  Join our community of learners and educators
+                </p>
               </div>
-              <h2 class="text-purple mb-2">Create Account</h2>
-              <p class="text-muted">
-                Join our community of learners and educators
-              </p>
+
+              <form @submit.prevent="handleSubmit">
+                <!-- Step Indicators start -->
+                <div class="step-indicators mb-5">
+                  <div class="d-flex justify-content-between">
+                    <div class="step" :class="{ active: currentStep >= 1 }">
+                      <div class="step-circle">
+                        <i class="bi bi-person"></i>
+                      </div>
+                      <div class="step-label">Account</div>
+                    </div>
+                    <div class="step" :class="{ active: currentStep >= 2 }">
+                      <div class="step-circle">
+                        <i class="bi bi-person-fill-add"></i>
+                      </div>
+                      <div class="step-label">Payment</div>
+                    </div>
+                    <div class="step" :class="{ active: currentStep >= 3 }">
+                      <div class="step-circle">
+                        <i class="bi bi-credit-card"></i>
+                      </div>
+                      <div class="step-label">Complete</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Step Indicators end -->
+
+                <!-- Step 1: Personal Details -->
+                <div v-if="currentStep === 1">
+                  <PersonalDetailsForm
+                    v-model="formData"
+                    @validation="(valid) => (isStep1Valid = valid)"
+                  />
+                  <div class="button-group">
+                    <button
+                      class="w-100 btn btn-primary"
+                      type="button"
+                      @click="nextStep"
+                      :disabled="!isStep1Valid"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </div>
+                <!-- Step 1: Personal Details -->
+
+                <!-- Step 2: Additional Information -->
+                <div v-if="currentStep === 2">
+                  <AdditionalInfoForm
+                    v-model="formData"
+                    @validation="(valid) => (isStep2Valid = valid)"
+                  />
+                  <div
+                    class="button-group d-flex justify-content-between align-items-center"
+                  >
+                    <button
+                      type="button"
+                      @click="prevStep"
+                      class="btn btn-primary"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="button"
+                      @click="nextStep"
+                      :disabled="!isStep2Valid"
+                      class="btn btn-primary"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </div>
+                <!-- Step 2: Additional Information end -->
+
+                <!-- Step 3: Payment -->
+                <div class="step" v-if="currentStep === 3">
+                  <PaymentForm
+                    v-model="formData"
+                    @click-payment="(valid) => (isPaymentComplete = valid)"
+                  />
+                  <div
+                    class="button-group mt-4 d-flex justify-content-between align-items-center"
+                  >
+                    <button
+                      type="button "
+                      class="btn btn-primary"
+                      @click="prevStep"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      :disabled="!isPaymentComplete"
+                    >
+                      Complete Registration
+                    </button>
+                  </div>
+                </div>
+
+                <div class="text-center mt-3">
+                  <p class="mb-0">
+                    Already have an account?
+                    <router-link to="/login" class="text-purple"
+                      >Login</router-link
+                    >
+                  </p>
+                </div>
+              </form>
             </div>
-
-            <form @submit.prevent="handleSubmit">
-              <!-- Step Indicators start -->
-              <div class="step-indicators mb-5">
-                <div class="d-flex justify-content-between">
-                  <div class="step" :class="{ active: currentStep >= 1 }">
-                    <div class="step-circle">
-                      <i class="bi bi-person"></i>
-                    </div>
-                    <div class="step-label">Account</div>
-                  </div>
-                  <div class="step" :class="{ active: currentStep >= 2 }">
-                    <div class="step-circle">
-                      <i class="bi bi-person-fill-add"></i>
-                    </div>
-                    <div class="step-label">Payment</div>
-                  </div>
-                  <div class="step" :class="{ active: currentStep >= 3 }">
-                    <div class="step-circle">
-                      <i class="bi bi-credit-card"></i>
-                    </div>
-                    <div class="step-label">Complete</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Step Indicators end -->
-
-              <!-- Step 1: Personal Details -->
-              <div v-if="currentStep === 1">
-                <PersonalDetailsForm
-                  v-model="formData"
-                  @validation="(valid) => (isStep1Valid = valid)"
-                />
-                <div class="button-group">
-                  <button
-                    class="w-100 btn btn-primary"
-                    type="button"
-                    @click="nextStep"
-                    :disabled="!isStep1Valid"
-                  >
-                    Continue
-                  </button>
-                </div>
-              </div>
-              <!-- Step 1: Personal Details -->
-
-              <!-- Step 2: Additional Information -->
-              <div v-if="currentStep === 2">
-                <AdditionalInfoForm
-                  v-model="formData"
-                  @validation="(valid) => (isStep2Valid = valid)"
-                />
-                <div
-                  class="button-group d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    type="button"
-                    @click="prevStep"
-                    class="btn btn-primary"
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="button"
-                    @click="nextStep"
-                    :disabled="!isStep2Valid"
-                    class="btn btn-primary"
-                  >
-                    Continue
-                  </button>
-                </div>
-              </div>
-              <!-- Step 2: Additional Information end -->
-
-              <!-- Step 3: Payment -->
-              <div class="step" v-if="currentStep === 3">
-                <PaymentForm
-                  v-model="formData"
-                  @click-payment="(valid) => (isPaymentComplete = valid)"
-                />
-                <div
-                  class="button-group mt-4 d-flex justify-content-between align-items-center"
-                >
-                  <button
-                    type="button "
-                    class="btn btn-primary"
-                    @click="prevStep"
-                  >
-                    Back
-                  </button>
-                  <button
-                    type="submit"
-                    class="btn btn-primary"
-                    :disabled="!isPaymentComplete"
-                  >
-                    Complete Registration
-                  </button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -128,8 +139,8 @@
 import PersonalDetailsForm from "../components/register/PersonalDetailsForm.vue";
 import AdditionalInfoForm from "../components/register/AdditionalInfoForm.vue";
 import PaymentForm from "../components/register/PaymentForm.vue";
-import { ref, watch } from "vue";
-import {useUsersStore} from "@/stores/users";
+import { ref, onMounted } from "vue";
+import { useUsersStore } from "@/stores/users";
 
 const usersStore = useUsersStore();
 
@@ -156,6 +167,7 @@ const formData = ref({
   nin: "",
   department: "",
   gender: "",
+  role: "student",
   privacyPolicy: false,
   // // Step 3: Payment
 });
@@ -170,19 +182,6 @@ function handleSubmit() {
   nextStep();
   usersStore.registerUser(formData.value);
 }
-
-watch(
-  formData,
-  (newVal) => {
-    // console.log("Updated formData:", newVal);
-  },
-  { deep: true }
-);
-
-// <AdditionalInfoForm
-//                   v-model="formData"
-//                   @validation="(valid) => (isStep2Valid = valid)"
-//                 />
 </script>
 
 <style scoped>
@@ -250,7 +249,7 @@ watch(
 @media (max-width: 768px) {
   .register-card {
     padding: var(--spacing-lg);
-    margin: var(--spacing-md);
+    /* margin: var(--spacing-md); */
   }
 
   .register::before {
