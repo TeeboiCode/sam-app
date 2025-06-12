@@ -23,7 +23,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const emit = defineEmits(["click-payment"]);
+</script>
 
 <style scoped>
 .payment-option {

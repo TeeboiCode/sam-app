@@ -98,7 +98,7 @@
             <div class="text-center">
               <p class="mb-0">
                 Don't have an account?
-                <router-link to="/signup" class="text-purple"
+                <router-link to="/register" class="text-purple"
                   >Sign Up</router-link
                 >
               </p>
@@ -111,24 +111,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { useUsersStore } from "@/stores/users";
 
-const email = ref('');
-const password = ref('');
-const role = ref('');
+const email = ref("");
+const password = ref("");
+const role = ref("");
 const loading = ref(false);
+
+const userStore = useUsersStore();
 
 async function handleSubmit() {
   loading.value = true;
   try {
-    // TODO: Implement login logic
-    console.log("Login attempt with:", {
+    await userStore.loginUser({
       email: email.value,
       password: password.value,
       role: role.value,
     });
   } catch (error) {
-    console.error("Login error:", error);
   } finally {
     loading.value = false;
   }
