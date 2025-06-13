@@ -196,7 +196,15 @@ async function handleSubmit() {
 }
 
 .form-select {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--light-purple);
+}
+
+.form-select:focus {
+  outline: none;
+
+  box-shadow: none;
 }
 
 .form-select option {
@@ -339,7 +347,7 @@ async function handleSubmit() {
   }
 
   .form-select option {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .form-control::placeholder {
@@ -441,6 +449,10 @@ async function handleSubmit() {
   .form-select {
     font-size: 1.1rem;
     padding: 0.8rem;
+  }
+
+  .form-select option {
+    font-size: 0.7rem;
   }
 
   .btn {
