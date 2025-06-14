@@ -13,6 +13,7 @@
     <router-link class="btn btn-danger" to="/seun" role="button">Seun Task</router-link>
     <router-link class="btn btn-dark" to="/kcee" role="button">Kcee Task</router-link>
     <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link>
+    <router-link class="btn btn-info" to="/rauf2" role="button"></router-link>
 
     <!-- <router-link
       class="btn btn-success"
