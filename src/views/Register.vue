@@ -181,6 +181,12 @@ const nextStep = () => {
   }
 };
 
+const prevStep = () => {
+  if (currentStep.value > 1) {
+    currentStep.value--;
+  }
+};
+
 function handleSubmit() {
   nextStep();
   usersStore.registerUser(formData.value, router);
