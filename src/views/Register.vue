@@ -141,8 +141,11 @@ import AdditionalInfoForm from "../components/register/AdditionalInfoForm.vue";
 import PaymentForm from "../components/register/PaymentForm.vue";
 import { ref, onMounted } from "vue";
 import { useUsersStore } from "@/stores/users";
+import axios from "axios";
+import { useRouter } from "vue-router";
 
 const usersStore = useUsersStore();
+const router = useRouter();
 
 const currentStep = ref(1);
 const isStep1Valid = ref(false);
@@ -180,7 +183,7 @@ const nextStep = () => {
 
 function handleSubmit() {
   nextStep();
-  usersStore.registerUser(formData.value);
+  usersStore.registerUser(formData.value, router);
 }
 </script>
 
