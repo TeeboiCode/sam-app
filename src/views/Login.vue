@@ -27,7 +27,7 @@
                   type="email"
                   class="form-control"
                   id="email"
-                  v-model="email"
+                  v-model="formData.email"
                   required
                   placeholder="Email address"
                 />
@@ -39,7 +39,11 @@
                 <span class="input-group-text">
                   <i class="fas fa-user-tag"></i>
                 </span>
-                <select class="form-select" v-model="role" required>
+                <select
+                  class="form-select"
+                  v-model="formData.expectedRole"
+                  required
+                >
                   <option value="" disabled selected>Select your role</option>
                   <option value="student">Student</option>
                   <option value="parent">Parent</option>
@@ -58,7 +62,7 @@
                   type="password"
                   class="form-control"
                   id="password"
-                  v-model="password"
+                  v-model="formData.password"
                   required
                   placeholder="Password"
                 />
@@ -72,7 +76,12 @@
 
             <div class="mb-4">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="remember" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="remember"
+                  v-model="formData.rememberMe"
+                />
                 <label class="form-check-label" for="remember">
                   Remember me
                 </label>
@@ -98,7 +107,7 @@
             <div class="text-center">
               <p class="mb-0">
                 Don't have an account?
-                <router-link to="/signup" class="text-purple"
+                <router-link to="/register" class="text-purple"
                   >Sign Up</router-link
                 >
               </p>
@@ -111,24 +120,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { useUsersStore } from "@/stores/users";
+import { useRouter } from "vue-router";
 
-const email = ref('');
-const password = ref('');
-const role = ref('');
+const formData = ref({
+  email: "",
+  password: "",
+  expectedRole: "",
+  rememberMe: false,
+});
+
 const loading = ref(false);
+
+const userStore = useUsersStore();
+const router = useRouter();
 
 async function handleSubmit() {
   loading.value = true;
   try {
-    // TODO: Implement login logic
-    console.log("Login attempt with:", {
-      email: email.value,
-      password: password.value,
-      role: role.value,
-    });
+    await userStore.loginUser(formData.value, router);
   } catch (error) {
-    console.error("Login error:", error);
   } finally {
     loading.value = false;
   }
@@ -195,7 +207,15 @@ async function handleSubmit() {
 }
 
 .form-select {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--light-purple);
+}
+
+.form-select:focus {
+  outline: none;
+
+  box-shadow: none;
 }
 
 .form-select option {
@@ -338,7 +358,7 @@ async function handleSubmit() {
   }
 
   .form-select option {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .form-control::placeholder {
@@ -440,6 +460,10 @@ async function handleSubmit() {
   .form-select {
     font-size: 1.1rem;
     padding: 0.8rem;
+  }
+
+  .form-select option {
+    font-size: 0.7rem;
   }
 
   .btn {

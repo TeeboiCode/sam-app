@@ -16,6 +16,13 @@ import KceeTask from "../components/TaskFolder/KceeTask.vue";
 import SeyiTask from "../components/TaskFolder/SeyiTask.vue";
 import Rauf2 from "../components/TaskFolder/Rauf2.vue";
 
+// Admin Dashboard
+// import AdminDashboard from "../views/AdminDashboard.vue";
+// import StudentDashboard from "../views/StudentDashboard.vue";
+// import ParentDashboard from "../views/ParentDashboard.vue";
+// import TutorDashboard from "../views/TutorDashboard.vue";
+
+import StudentDashboard from "../components/Dashboard.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -91,6 +98,28 @@ const routes = [
     name: "Rauf2",
     component: Rauf2,
   },
+
+
+  // Admin Dashboard
+  // {
+  //   path: "/adminDashboard",
+  //   name: "AdminDashboard",
+  //   component: AdminDashboard,
+  // },
+  {
+    path: "/student/dashboard",
+    name: "StudentDashboard",
+    component: StudentDashboard,
+  },
+  // {
+  //   path: "/parentDashboard",
+  //   name: "ParentDashboard",
+  //   component: ParentDashboard,
+  // },
+  // {
+  //   path: "/tutorDashboard",
+  //   name: "TutorDashboard",
+  //   component: TutorDashboard,
 ];
 
 const router = createRouter({

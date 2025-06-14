@@ -1,5 +1,5 @@
 <template>
-  <div class="top-nav py-2">
+  <div class="top-nav py-2 d-none d-md-block">
     <div class="container">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
         <!-- Left Section -->
@@ -58,10 +58,10 @@ export default {
 }
 
 .hover-purple {
-  transition: var(--transition-normal);
+  transition: color 0.3s ease;
 }
 
 .hover-purple:hover {
-  color: var(--royal-purple) !important;
+  color: var(--royal-purple, #6f42c1) !important;
 }
 </style>

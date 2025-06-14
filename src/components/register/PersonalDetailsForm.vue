@@ -122,7 +122,7 @@
             <i class="bi bi-lock"></i>
           </span>
           <input
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-control"
             id="password"
             v-model="localFormData.password"
@@ -136,6 +136,12 @@
             required
             placeholder="Create a password"
           />
+          <span
+            class="input-group-text password-toggle"
+            @click="togglePasswordVisibility"
+          >
+            <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+          </span>
           <div
             class="invalid-feedback"
             v-if="touched.password && errors.password"
@@ -151,7 +157,7 @@
             <i class="bi bi-lock"></i>
           </span>
           <input
-            type="password"
+            :type="showConfirmPassword ? 'text' : 'password'"
             class="form-control"
             id="confirmPassword"
             v-model="localFormData.confirmPassword"
@@ -167,6 +173,14 @@
             required
             placeholder="Confirm your password"
           />
+          <span
+            class="input-group-text password-toggle"
+            @click="toggleConfirmPasswordVisibility"
+          >
+            <i
+              :class="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+            ></i>
+          </span>
           <div
             class="invalid-feedback"
             v-if="touched.confirmPassword && errors.confirmPassword"
@@ -320,6 +334,17 @@ watch(
   },
   { deep: true }
 );
+
+const showPassword = ref(false);
+const showConfirmPassword = ref(false);
+
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const toggleConfirmPasswordVisibility = () => {
+  showConfirmPassword.value = !showConfirmPassword.value;
+};
 </script>
 
 <style scoped>
@@ -337,5 +362,21 @@ watch(
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Password Toggle Styles */
+.password-toggle {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--royal-purple, #6b46c1);
+}
+
+.password-toggle:hover {
+  background-color: var(--soft-purple, #f3f4f6);
+  color: var(--royal-purple, #6b46c1);
+}
+
+.password-toggle i {
+  font-size: 0.9rem;
 }
 </style>
