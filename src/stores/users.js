@@ -84,7 +84,7 @@ export const useUsersStore = defineStore("users", {
         });
 
         const roleRoutes = {
-          student: "/student/dashboard",
+          student: "/",
           parent: "/parent/dashboard",
           tutor: "/tutor/dashboard",
           admin: "/admin/dashboard",
@@ -104,6 +104,77 @@ export const useUsersStore = defineStore("users", {
       }
     },
 
+    async forgetPassword(email, router) {
+      try {
+        // 1. Show loading indicator
+        await Swal.fire({
+          title: "Sending reset link...",
+          html: "Please wait while we process your request.",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+          timer: 5000, //
+          timerProgressBar: true,
+        });
+
+        // 2. Make request after delay (or during it)
+        const response = await axios.post(
+          `${API_URL}/api/auth/forgot-password`,
+          {
+            email,
+          }
+        );
+
+        const { message } = response.data;
+
+        return message;
+      } catch (error) {
+        // 4. Show error message
+        await Swal.fire({
+          icon: "error",
+          title: error.response?.data?.error || "Something went wrong",
+          text: "Please try again.",
+          timer: 3000,
+        });
+
+        router.push("/forget-password");
+        return null;
+      }
+    },
+
+    async resetPassword(formData, router) {
+      try {
+        const response = await axios.post(
+          `${API_URL}/api/auth/reset-password`,
+          formData
+        );
+
+        const { message } = response.data;
+
+        await Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: message,
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push("/login");
+          }
+        });
+
+        return message;
+      } catch (error) {
+        await Swal.fire({
+          icon: "error",
+          title: error.response?.data?.error || "Something went wrong",
+          text: "Please check your password if matches.",
+          timer: 3000,
+        });
+        return null;
+      }
+    },
+
     logoutUser(router) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
@@ -116,9 +187,9 @@ export const useUsersStore = defineStore("users", {
         title: "Logged out",
         timer: 1500,
         showConfirmButton: false,
+      }).then(() => {
+        router.push("/login");
       });
-
-      router.push("/login");
     },
   },
 });

@@ -152,72 +152,10 @@
         </div>
 
         <div
-          class="d-flex gap-4 align-items-center justify-content-center"
+          class="d-flex gap-5 align-items-center justify-content-center"
           v-else
         >
           <ul class="user-icons d-flex gap-3 m-0">
-            <!-- <li class="nav-item position-relative">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-bell"></i>
-                <span
-                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                >
-                  99+
-                </span>
-              </a>
-              <ul class="dropdown-menu p-0 pt-2" id="notification">
-                <li
-                  class="dropdown-notification-header justify-content-start border-bottom"
-                >
-                  <h6 class="dropdown-header">Notifications</h6>
-                </li>
-                <li>
-                  <a class="dropdown-item border-bottom py-2" href="#"
-                    >Action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item border-bottom py-2" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item border-bottom py-2" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <div class="notification-item">
-                    <img
-                      src="https://via.placeholder.com/40x40?text=AI"
-                      class="notification-image"
-                    />
-                    <div class="notification-text">
-                      <div class="notification-title">
-                        In Artificial Intelligence
-                      </div>
-                      <div class="notification-subtitle">You are Enrolled</div>
-                    </div>
-                    <div class="notification-time">Just now</div>
-                  </div>
-                </li>
-
-                <li class="dropdown-notification-footer bg-body-secondary">
-                  <p
-                    class="dropdown-item m-0 text-center fw-bold text-secondary"
-                  >
-                    Mark all as read
-                  </p>
-                </li>
-              </ul>
-            </li> -->
-
             <li class="nav-item dropdown position-relative">
               <div
                 class="dropdown-toggle position-relative"
@@ -235,9 +173,21 @@
 
               <div
                 class="dropdown-menu dropdown-menu-end p-0"
-                style="width: 320px"
+                style="
+                  width: 320px;
+                  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                  top: 55px !important;
+                  overflow: hidden;
+                  border-radius: 0 !important;
+                "
               >
-                <div class="border-bottom px-3 py-2 fw-bold">Notifications</div>
+                <div
+                  class="border-bottom px-3 py-2 fw-bold overflow-hidden"
+                  style="background-color: #eee"
+                >
+                  Notifications
+                </div>
 
                 <div
                   class="notifications-list"
@@ -246,119 +196,27 @@
                   <!-- Notification Item -->
                   <div
                     class="d-flex align-items-center px-3 py-2 border-bottom"
+                    v-for="notification in notifications"
+                    :key="notification.id"
                   >
                     <img
-                      src="https://via.placeholder.com/40x40?text=AI"
+                      :src="notification.image"
                       class="me-2 rounded"
                       width="40"
                       height="40"
-                      alt="AI"
+                      :alt="notification.alt"
                     />
                     <div class="flex-grow-1">
                       <div
                         class="fw-bold text-truncate"
                         style="max-width: 200px"
                       >
-                        In Artificial Intelligence
+                        {{ notification.title }}
                       </div>
-                      <div class="text-muted small">You are Enrolled</div>
-                    </div>
-                    <small class="text-muted ms-2">Just now</small>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                  >
-                    <img
-                      src="https://via.placeholder.com/40x40?text=Veg"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      alt="Veg"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-bold text-truncate">
-                        In Indian Veg Course
+                      <div class="text-muted small">
+                        {{ notification.message }}
                       </div>
-                      <div class="text-muted small">You are Enrolled</div>
                     </div>
-                    <small class="text-muted ms-2">2 min ago</small>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                  >
-                    <img
-                      src="https://via.placeholder.com/40x40?text=Excel"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      alt="Excel"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-bold text-truncate">
-                        In Learn Microsoft Excel
-                      </div>
-                      <div class="text-muted small">You are Enrolled</div>
-                    </div>
-                    <small class="text-muted ms-2">5 min ago</small>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                  >
-                    <img
-                      src="https://via.placeholder.com/40x40?text=JS"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      alt="JS"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-bold text-truncate">
-                        JavaScript for Beginners
-                      </div>
-                      <div class="text-muted small">You are Enrolled</div>
-                    </div>
-                    <small class="text-muted ms-2">10 min ago</small>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                  >
-                    <img
-                      src="https://via.placeholder.com/40x40?text=HTML"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      alt="HTML"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-bold text-truncate">
-                        HTML & CSS Fundamentals
-                      </div>
-                      <div class="text-muted small">You are Enrolled</div>
-                    </div>
-                    <small class="text-muted ms-2">30 min ago</small>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                  >
-                    <img
-                      src="https://via.placeholder.com/40x40?text=Vue"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      alt="Vue"
-                    />
-                    <div class="flex-grow-1">
-                      <div class="fw-bold text-truncate">
-                        Vue.js Masterclass
-                      </div>
-                      <div class="text-muted small">You are Enrolled</div>
-                    </div>
-                    <small class="text-muted ms-2">1 hr ago</small>
                   </div>
                 </div>
 
@@ -393,9 +251,94 @@
               </span>
             </li>
           </ul>
-          <button class="btn btn-primary" @click="userStore.logoutUser(router)">
-            Logout
-          </button>
+
+          <div class="d-flex gap-2 position-relative">
+            <div
+              class="dropdown-toggle position-relative"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <div class="dropdown-header">
+                <div class="user-img">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/75.jpg"
+                    alt="User"
+                  />
+                </div>
+                <div class="user-info">
+                  <div class="name fs-6 fw-semibold">
+                    Oluwaleye
+                    <span
+                      ><img
+                        style="width: 15px; height: 15px"
+                        src="https://img.icons8.com/material-rounded/24/chevron-down.png"
+                        alt="chevron-down"
+                    /></span>
+                  </div>
+
+                  <!-- <div class="email">user@mediacity.co.in</div> -->
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="dropdown-menu dropdown-menu-end p-0"
+              style="
+                width: 320px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                top: 55px !important;
+                right: 0 !important;
+                left: auto !important;
+                overflow: hidden;
+                border-radius: 0 !important;
+              "
+            >
+              <div
+                class="border-bottom p-3 fw-bold overflow-hidden"
+                style="background-color: #e2dee2"
+              >
+                <!-- Profile Header -->
+                <div class="dropdown-header">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/75.jpg"
+                    alt="User"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                  <div class="user-info">
+                    <div class="name fs-4">Oluwaleye Oluwaleye</div>
+                    <div class="email">user@mediacity.co.in</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="notifications-list"
+                style="max-height: 260px; overflow-y: auto"
+              >
+                <!-- Profile links -->
+                <div
+                  class="p-links d-flex align-items-center border-bottom"
+                  v-for="profileItem in profileItems"
+                  :key="profileItem.id" @click="router.push(profileItem.router)"
+                >
+                  <div class="dropdown-item px-4 py-3">
+                    <i>{{ profileItem.icon }}</i> {{ profileItem.label }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center py-2 bg-light fw-semibold border-top">
+                <div
+                  @click="userStore.logoutUser(router)"
+                  class="text-decoration-none text-dark"
+                  style="cursor: pointer"
+                >
+                  Logout
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -594,6 +537,101 @@
 import { computed, ref } from "vue";
 import { useUsersStore } from "@/stores/users";
 import { useRouter } from "vue-router";
+const notifications = [
+  {
+    id: 1,
+    title: "In Artificial Intelligence",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=AI",
+    alt: "AI",
+  },
+  {
+    id: 2,
+    title: "In Indian Veg Course",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=Veg",
+    alt: "Veg",
+  },
+  {
+    id: 3,
+    title: "In Learn Microsoft Excel",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=Excel",
+    alt: "Excel",
+  },
+  {
+    id: 4,
+    title: "JavaScript for Beginners",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=JS",
+    alt: "JS",
+  },
+  {
+    id: 5,
+    title: "HTML & CSS Fundamentals",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=HTML",
+    alt: "HTML",
+  },
+  {
+    id: 6,
+    title: "Vue.js Masterclass",
+    message: "You are Enrolled",
+    image: "https://via.placeholder.com/40x40?text=Vue",
+    alt: "Vue",
+  },
+];
+
+const profileItems = [
+  {
+    id: 1,
+    label: "My Courses",
+    icon: "📘",
+    router: "/my-courses",
+  },
+  {
+    id: 2,
+    label: "Wishlist",
+    icon: "💖",
+    router: "/wishlist",
+  },
+  {
+    id: 3,
+    label: "Purchased History",
+    icon: "🛒",
+    router: "/purchased-history",
+  },
+  {
+    id: 4,
+    label: "Profile",
+    icon: "👤",
+    router: "/student/profile",
+  },
+  {
+    id: 5,
+    label: "Become An Instructor",
+    icon: "📣",
+    router: "/instructor",
+  },
+  {
+    id: 6,
+    label: "Flash Deals",
+    icon: "⚡",
+    router: "/flash-deals",
+  },
+  {
+    id: 7,
+    label: "Watchlist",
+    icon: "📺",
+    router: "/watchlist",
+  },
+  {
+    id: 8,
+    label: "Certificate Center",
+    icon: "🎓",
+    router: "/certificate-center",
+  },
+];
 
 const userStore = useUsersStore();
 const router = useRouter();
@@ -745,5 +783,63 @@ const toggleMobileMenu = () => {
 
 li.dropdown-notification-header {
   text-align: start !important  ;
+}
+
+.notifications-list::-webkit-scrollbar {
+  width: 2px;
+}
+.notifications-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.notifications-list::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  justify-content: space-around;
+}
+
+.dropdown-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.dropdown-header .user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-header .user-info .name {
+  font-weight: 300;
+}
+
+.dropdown-header .user-info .email {
+  font-size: 0.9em;
+  color: #666;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.p-links {
+  color: var(--deep-purple);
+}
+
+.p-links:hover {
+  color: var(--deep-purple);
+}
+
+.user-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--deep-purple);
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

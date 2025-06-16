@@ -68,23 +68,31 @@
                 />
               </div>
               <div
-                class="d-flex justify-content-end align-items-center mb-2 forget-password"
+                class="d-flex justify-content-between align-items-center forget-password py-3"
               >
-                <a href="#" class="text-purple small">Forgot password?</a>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="remember"
-                  v-model="formData.rememberMe"
-                />
-                <label class="form-check-label" for="remember">
-                  Remember me
-                </label>
+                <div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="remember"
+                      v-model="formData.rememberMe"
+                    />
+                    <label
+                      class="form-check-label text-purple fw-semibold"
+                      for="remember"
+                    >
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <div
+                  @click="router.push('/forget-password')"
+                  class="text-purple small fw-semibold"
+                  style="cursor: pointer"
+                >
+                  Forgot password?
+                </div>
               </div>
             </div>
 
