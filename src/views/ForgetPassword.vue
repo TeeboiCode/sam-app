@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import forgetPwFormVue from "@/components/forgetPassword/forgetPwForm.vue";
+import ForgetPwFormVue from "@/components/forgetPassword/ForgetPwForm.vue";
 import forgetPwMessageCardVue from "@/components/forgetPassword/ForgetPwMessageCard.vue";
 import { ref } from "vue";
 import { useUsersStore } from "../stores/users";
