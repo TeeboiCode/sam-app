@@ -8,7 +8,7 @@
       border: 1px solid black;
     "
   >
-    <linkeVue />
+    <!-- <linkeVue /> -->
     <NavigationVue />
 
     <router-view />
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import linkeVue from "./components/linksfiles.vue/linke.vue";
+// import linkeVue from "./components/linksfiles.vue/linke.vue";
 import NavigationVue from "./views/Navigation.vue";
 </script>
 

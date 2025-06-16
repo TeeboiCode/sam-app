@@ -1,160 +1,126 @@
 <template>
-  <div class="calendar-container">
-    <div class="header">
-      <button @click="prevMonth">‹</button>
-      <h2>{{ monthNames[currentMonth] }} {{ currentYear }}</h2>
-      <button @click="nextMonth">›</button>
-    </div>
-
-    <div class="weekdays">
-      <div v-for="day in weekdays" :key="day" class="weekday">{{ day }}</div>
-    </div>
-
-    <div class="days">
-      <div
-        v-for="(day, index) in days"
-        :key="index"
-        :class="['day', { today: isToday(day), empty: !day }]"
-      >
-        {{ day }}
-      </div>
-    </div>
+  <div class="chart-container">
+    <Bar
+      id="monthly-registered-users-chart"
+      :options="chartOptions"
+      :data="chartData"
+    />
   </div>
 </template>
 
-<script setup>
-import { ref, computed } from "vue";
+<script>
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
 
-const today = new Date();
-const currentMonth = ref(today.getMonth());
-const currentYear = ref(today.getFullYear());
-
-const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-function getDaysInMonth(year, month) {
-  const date = new Date(year, month, 1);
-  const days = [];
-
-  const firstDay = date.getDay();
-  const totalDays = new Date(year, month + 1, 0).getDate();
-
-  for (let i = 0; i < firstDay; i++) {
-    days.push(null); // empty cells
-  }
-
-  for (let i = 1; i <= totalDays; i++) {
-    days.push(i);
-  }
-
-  return days;
-}
-
-const days = computed(() =>
-  getDaysInMonth(currentYear.value, currentMonth.value)
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
 );
 
-function nextMonth() {
-  if (currentMonth.value === 11) {
-    currentMonth.value = 0;
-    currentYear.value += 1;
-  } else {
-    currentMonth.value += 1;
-  }
-}
-
-function prevMonth() {
-  if (currentMonth.value === 0) {
-    currentMonth.value = 11;
-    currentYear.value -= 1;
-  } else {
-    currentMonth.value -= 1;
-  }
-}
-
-function isToday(day) {
-  return (
-    day &&
-    day === today.getDate() &&
-    currentMonth.value === today.getMonth() &&
-    currentYear.value === today.getFullYear()
-  );
-}
+export default {
+  name: "MonthlyRegisteredUsersChart",
+  components: {
+    Bar,
+  },
+  data() {
+    return {
+      chartData: {
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
+        datasets: [
+          {
+            label: "Monthly Registered Users",
+            backgroundColor: "#3b82f6",
+            data: [17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          },
+        ],
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: "Monthly Registered Users in 2025",
+            align: "start",
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                let label = context.dataset.label || "";
+                if (label) {
+                  label += ": ";
+                }
+                if (context.parsed.y !== null) {
+                  label += context.parsed.y;
+                }
+                return label;
+              },
+            },
+          },
+          legend: {
+            display: true,
+          },
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Month",
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Value",
+            },
+            beginAtZero: true,
+            max: 18,
+          },
+        },
+      },
+    };
+  },
+  methods: {
+    updateChartData(newData) {
+      this.chartData.datasets[0].data = newData;
+    },
+  },
+};
 </script>
 
 <style scoped>
-.calendar-container {
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px #ccc;
+.chart-container {
+  background-color: #ffffff;
   border-radius: 8px;
-  background: white;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header h2 {
-  margin: 0;
-}
-
-.header button {
-  font-size: 1.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.weekdays,
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  margin-top: 10px;
-}
-
-.weekday {
-  font-weight: bold;
-  padding: 5px 0;
-}
-
-.day {
-  padding: 10px;
-  border-radius: 50%;
-  margin: 2px;
-  transition: background 0.3s;
-}
-
-.day:hover {
-  background: #f0f0f0;
-  color: #800080;
-}
-
-.today {
-  background: #800080;
-  color: white;
-  font-weight: bold;
-}
-
-.empty {
-  visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  height: 400px;
 }
 </style>
