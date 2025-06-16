@@ -22,6 +22,13 @@
     >
     <!-- <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link> -->
 
+    <router-link class="btn btn-primary" to="/rauf" role="button">Rauf Task</router-link>
+    <router-link class="btn btn-secondary" to="/layo" role="button">Layo Task</router-link>
+    <router-link class="btn btn-danger" to="/seun" role="button">Seun Task</router-link>
+    <router-link class="btn btn-dark" to="/kcee" role="button">Kcee Task</router-link>
+    <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link>
+
+
     <!-- <router-link
       class="btn btn-success"
       to="/taskAdditionalInfoForm"
