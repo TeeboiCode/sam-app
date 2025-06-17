@@ -5,8 +5,14 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/styles/custom.css";
+import VueApexCharts from "vue3-apexcharts";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
 
 setupAxiosInterceptors(router);
 
-createApp(App).use(router).use(createPinia()).mount("#app");
+const app = createApp(App);
+app.use(router);
+app.use(createPinia());
+app.component("apexchart", VueApexCharts);
+app.mount("#app");
+
