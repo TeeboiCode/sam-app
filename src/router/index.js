@@ -15,6 +15,7 @@ import LayoTask from "../components/TaskFolder/LayoTask.vue";
 import SeunTask from "../components/TaskFolder/SeunTask.vue";
 import KceeTask from "../components/TaskFolder/KceeTask.vue";
 import SeyiTask from "../components/TaskFolder/SeyiTask.vue";
+import Rauf2 from "../components/TaskFolder/Rauf2.vue";
 
 // Admin Dashboard
 // import AdminDashboard from "../views/AdminDashboard.vue";
@@ -105,6 +106,7 @@ const routes = [
     component: SeyiTask,
   },
 
+
   // Admin Dashboard
   // {
   //   path: "/adminDashboard",
@@ -124,7 +126,7 @@ const routes = [
   // {
   //   path: "/tutorDashboard",
   //   name: "TutorDashboard",
-  //   component: TutorDashboard,
+
 ];
 
 const router = createRouter({
