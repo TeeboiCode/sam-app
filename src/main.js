@@ -6,7 +6,18 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/styles/custom.css";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
+import VueApexCharts from 'vue3-apexcharts'
 
 setupAxiosInterceptors(router);
 
-createApp(App).use(router).use(createPinia()).mount("#app");
+// Only create the app ONCE
+const app = createApp(App);
+
+// Register plugins
+app.use(router);
+app.use(createPinia());
+app.component('apexchart', VueApexCharts);
+
+// Mount to DOM
+app.mount("#app");
+
