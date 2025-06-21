@@ -18,7 +18,13 @@
       >Seun Task</router-link
     >
     <router-link class="btn btn-dark" to="/kcee" role="button"
-      >Kcee Task</router-link
+      >Kcee Task1</router-link
+    >
+    <router-link class="btn btn-dark" to="/kcee2" role="button"
+      >Kcee Task2</router-link
+    >
+    <router-link class="btn btn-dark" to="/kcee3" role="button"
+      >Kcee Task3</router-link
     >
     <!-- <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link> -->
 

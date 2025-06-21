@@ -1,160 +1,137 @@
 <template>
-  <div class="calendar-container">
-    <div class="header">
-      <button @click="prevMonth">‹</button>
-      <h2>{{ monthNames[currentMonth] }} {{ currentYear }}</h2>
-      <button @click="nextMonth">›</button>
-    </div>
-
-    <div class="weekdays">
-      <div v-for="day in weekdays" :key="day" class="weekday">{{ day }}</div>
-    </div>
-
-    <div class="days">
-      <div
-        v-for="(day, index) in days"
-        :key="index"
-        :class="['day', { today: isToday(day), empty: !day }]"
-      >
-        {{ day }}
+  <div class="container-wrapper">
+    <div class="card-wrapper">
+      <div class="card-content">
+        <h2>instructor mediacity</h2>
+        <p>instructor</p>
+        <div class="card-details">
+          <p>12 Courses</p>
+          <p>1 Follower</p>
+          <p>0 Following</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref, computed } from "vue";
-
-const today = new Date();
-const currentMonth = ref(today.getMonth());
-const currentYear = ref(today.getFullYear());
-
-const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-function getDaysInMonth(year, month) {
-  const date = new Date(year, month, 1);
-  const days = [];
-
-  const firstDay = date.getDay();
-  const totalDays = new Date(year, month + 1, 0).getDate();
-
-  for (let i = 0; i < firstDay; i++) {
-    days.push(null); // empty cells
-  }
-
-  for (let i = 1; i <= totalDays; i++) {
-    days.push(i);
-  }
-
-  return days;
-}
-
-const days = computed(() =>
-  getDaysInMonth(currentYear.value, currentMonth.value)
-);
-
-function nextMonth() {
-  if (currentMonth.value === 11) {
-    currentMonth.value = 0;
-    currentYear.value += 1;
-  } else {
-    currentMonth.value += 1;
-  }
-}
-
-function prevMonth() {
-  if (currentMonth.value === 0) {
-    currentMonth.value = 11;
-    currentYear.value -= 1;
-  } else {
-    currentMonth.value -= 1;
-  }
-}
-
-function isToday(day) {
-  return (
-    day &&
-    day === today.getDate() &&
-    currentMonth.value === today.getMonth() &&
-    currentYear.value === today.getFullYear()
-  );
-}
-</script>
+<script setup></script>
 
 <style scoped>
-.calendar-container {
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 0 10px #ccc;
-  border-radius: 8px;
-  background: white;
+.container-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+.card-wrapper {
+  position: relative;
+  height: 300px;
+  width: 450px;
+  background-image: url("@/assets/instructor.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  filter: brightness(1.5);
+  overflow: hidden;
 }
 
-.header {
+.card-content {
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  background-color: hsl(0, 0%, 0%, 0.5);
+  padding: 15px 15px 0;
+  transition: 0.5s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.card-wrapper:hover .card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-content h2 {
+  font-size: 1.5rem;
+  margin: 0.2rem 0;
+}
+
+.card-content p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.card-details {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: fit-content;
+  gap: 15px;
 }
 
-.header h2 {
-  margin: 0;
+.card-details p {
+  font-size: 0.9rem;
+  border-right: 1.5px solid white;
+  height: 35px;
+  padding: 0 10px 0 0;
 }
 
-.header button {
-  font-size: 1.5rem;
-  border: none;
-  background: none;
-  cursor: pointer;
+.card-details p:last-child {
+  border-right: none;
 }
 
-.weekdays,
-.days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  margin-top: 10px;
+@media (max-width: 600px) {
+  .card-wrapper {
+    width: 100%;
+    min-width: 0;
+    height: 280px;
+  }
+  .container-wrapper {
+    width: 100%;
+    padding: 0 5px;
+  }
+  .card-content {
+    padding: 10px 8px 0;
+    font-size: 0.95rem;
+  }
+  .card-content h2 {
+    font-size: 1.3rem;
+  }
+  .card-content p {
+    font-size: 1.1rem;
+  }
+  .card-details {
+    gap: 8px;
+  }
+  .card-details p {
+    font-size: 0.9rem;
+    height: 28px;
+    padding: 0 6px 0 0;
+  }
 }
 
-.weekday {
-  font-weight: bold;
-  padding: 5px 0;
-}
+@media (max-width: 400px) {
+  .card-wrapper {
+    height: 250px;
+  }
+  .card-content {
+    height: 50%;
+    padding: 10px 10px 0;
+  }
+  .card-content h2 {
+    font-size: 1.3rem;
+  }
 
-.day {
-  padding: 10px;
-  border-radius: 50%;
-  margin: 2px;
-  transition: background 0.3s;
-}
-
-.day:hover {
-  background: #f0f0f0;
-  color: #800080;
-}
-
-.today {
-  background: #800080;
-  color: white;
-  font-weight: bold;
-}
-
-.empty {
-  visibility: hidden;
+  .card-content p {
+    font-size: 1rem;
+  }
+  .card-details {
+    gap: 8px;
+  }
+  .card-details p {
+    font-size: 0.9rem;
+    height: 28px;
+    padding: 0 6px 0 0;
+  }
 }
 </style>

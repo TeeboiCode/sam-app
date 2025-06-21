@@ -7,6 +7,16 @@ import router from "./router";
 import "./assets/styles/custom.css";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
 
+// Import VCalendar & CSS
+import VCalendar from 'v-calendar';
+import 'v-calendar/dist/style.css';
+
 setupAxiosInterceptors(router);
 
-createApp(App).use(router).use(createPinia()).mount("#app");
+const app = createApp(App);
+
+// Use VCalendar with default settings
+app.use(VCalendar, {})
+   .use(router)
+   .use(createPinia())
+   .mount("#app");

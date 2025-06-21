@@ -371,10 +371,6 @@ const toggleConfirmPasswordVisibility = () => {
   color: var(--royal-purple, #6b46c1);
 }
 
-.password-toggle:hover {
-  background-color: var(--soft-purple, #f3f4f6);
-  color: var(--royal-purple, #6b46c1);
-}
 
 .password-toggle i {
   font-size: 0.9rem;
