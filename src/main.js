@@ -7,7 +7,6 @@ import router from "./router";
 import "./assets/styles/custom.css";
 import VueApexCharts from "vue3-apexcharts";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
-import VueApexCharts from 'vue3-apexcharts'
 
 setupAxiosInterceptors(router);
 
