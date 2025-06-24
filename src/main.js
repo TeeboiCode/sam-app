@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/styles/custom.css";
+import VueApexCharts from "vue3-apexcharts";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
 import VueApexCharts from 'vue3-apexcharts'
 
