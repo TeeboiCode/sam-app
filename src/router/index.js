@@ -11,6 +11,10 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgetPassword from "../views/ForgetPassword.vue";
 import RaufTask from "../components/TaskFolder/RaufTask.vue";
+import RaufTask2 from "../components/TaskFolder/RaufTask2.vue";
+import RaufTask3 from "../components/TaskFolder/RaufTask3.vue";
+
+
 import LayoTask from "../components/TaskFolder/LayoTask.vue";
 import SeunTask from "../components/TaskFolder/SeunTask.vue";
 import KceeTask from "../components/TaskFolder/KceeTask.vue";
@@ -83,6 +87,16 @@ const routes = [
     path: "/rauf",
     name: "RaufTask",
     component: RaufTask,
+  },
+  {
+    path: "/rauf2",
+    name: "RaufTask2",
+    component: RaufTask2,
+  },
+  {
+    path: "/rauf3",
+    name: "RaufTask3",
+    component: RaufTask3,
   },
   {
     path: "/seun",
