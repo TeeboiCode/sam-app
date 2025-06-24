@@ -20,7 +20,7 @@
     <router-link class="btn btn-dark" to="/kcee" role="button"
       >Kcee Task</router-link
     >
-    <!-- <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link> -->
+
 
     <!-- <router-link
       class="btn btn-success"
