@@ -17,6 +17,7 @@ import KceeTask from "../components/TaskFolder/KceeTask.vue";
 import KceeTask2 from "../components/TaskFolder/KceeTask2.vue";
 import KceeTask3 from "../components/TaskFolder/KceeTask3.vue";
 import SeyiTask from "../components/TaskFolder/SeyiTask.vue";
+import Rauf2 from "../components/TaskFolder/Rauf2.vue";
 
 // Admin Dashboard
 // import AdminDashboard from "../views/AdminDashboard.vue";
@@ -117,6 +118,7 @@ const routes = [
     component: SeyiTask,
   },
 
+
   // Admin Dashboard
   // {
   //   path: "/adminDashboard",
@@ -136,7 +138,7 @@ const routes = [
   // {
   //   path: "/tutorDashboard",
   //   name: "TutorDashboard",
-  //   component: TutorDashboard,
+
 ];
 
 const router = createRouter({
