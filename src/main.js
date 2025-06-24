@@ -8,8 +8,19 @@ import "./assets/styles/custom.css";
 import VueApexCharts from "vue3-apexcharts";
 import { setupAxiosInterceptors } from "./utils/axiosSetup";
 
+// Import VCalendar & CSS
+import VCalendar from 'v-calendar';
+import 'v-calendar/dist/style.css';
+
 setupAxiosInterceptors(router);
 
+const app = createApp(App);
+
+// Use VCalendar with default settings
+app.use(VCalendar, {})
+   .use(router)
+   .use(createPinia())
+   .mount("#app");
 // Only create the app ONCE
 const app = createApp(App);
 

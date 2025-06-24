@@ -59,13 +59,19 @@
                   <i class="fas fa-lock"></i>
                 </span>
                 <input
-                  type="password"
+                  :type="showPassword ? 'text' : 'password'"
                   class="form-control"
                   id="password"
                   v-model="formData.password"
                   required
                   placeholder="Password"
                 />
+                <span
+                  class="input-group-text password-toggle"
+                  @click="togglePasswordVisibility"
+                >
+                  <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                </span>
               </div>
               <div
                 class="d-flex justify-content-between align-items-center forget-password py-3"
@@ -129,6 +135,12 @@
 
 <script setup>
 import { ref } from "vue";
+
+const showPassword = ref(false);
+
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
 import { useUsersStore } from "@/stores/users";
 import { useRouter } from "vue-router";
 
@@ -199,7 +211,14 @@ async function handleSubmit() {
   width: 100%;
   max-width: 500px;
   padding: var(--spacing-sm);
+ 
 }
+
+.password-toggle {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 
 .logo-image {
   width: 200px;
@@ -208,6 +227,7 @@ async function handleSubmit() {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+
 }
 
 .logo-image img {
@@ -268,6 +288,7 @@ async function handleSubmit() {
 
 .form-control:focus::placeholder {
   opacity: 0.5;
+  
 }
 
 .btn {
