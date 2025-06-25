@@ -12,6 +12,8 @@ import { setupAxiosInterceptors } from "./utils/axiosSetup";
 import VCalendar from 'v-calendar';
 import 'v-calendar/dist/style.css';
 
+const app = createApp(App);
+
 setupAxiosInterceptors(router);
 
 // Use VCalendar with default settings
