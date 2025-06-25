@@ -11,6 +11,13 @@
     <router-link class="btn btn-primary" to="/rauf" role="button"
       >Rauf Task</router-link
     >
+    <router-link class="btn btn-primary" to="/rauf2" role="button"
+      >Rauf Task2</router-link
+    >
+    <router-link class="btn btn-primary" to="/rauf3" role="button"
+      >Rauf Task3</router-link
+    >
+
     <router-link class="btn btn-secondary" to="/layo" role="button"
       >Layo Task</router-link
     >
