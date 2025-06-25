@@ -3,33 +3,11 @@
    
     <div class="content">
      <div>
-         <h2>Buying Rate Proportion</h2>
-
-    <div class="date">
-      <input type="date" />
-    </div>
-
-         <p>
-        There are a number of reasons you may need a block of text and when you
-        do, a random paragraph can be the perfect solution. If you happen to be
-        a web designer and you need some random text to show in your layout, a
-        random paragraph can be an excellent way to do this. If you're a
-        programmer and you need random text to test the program, using these
-        paragraphs can be the perfect way to do this. Anyone who's in search of
-        realistic text for a project can use one or more of these random
-        paragraphs to fill their need. Improve Writing For writers looking for a
-        way to get their creative writing juices flowing, using a random
-        paragraph can be a great way to do this. One of the great benefits of
-        this tool is that nobody knows what is going to appear in the paragraph.
-        This can be leveraged in a few different ways to force the writer to use
-        creativity. For example, the random paragraph can be used as the
-        beginning paragraph of a story that the writer must finish. I can also
-        be used as a paragraph somewhere inside a short story, or for a more
-        difficult creative challenge, it can be used as the ending paragraph. In
-        every case, the writer is forced to use creativity to incorporate the
-        random paragraph into the story.
-      </p>
-     </div>
+         <h2>Unlocking the Potential of Your Ideas
+          <img src="/src/assets/African students computer stock image_ Image of cheerful - 29039485.jpg" alt="">
+         </h2>
+          <p><i class="fa-solid fa-calendar-days"></i>   01-09-2023</p>
+      </div>
       <div>
         <h2>Rewriting Skills</h2>
         <p>
@@ -104,47 +82,39 @@
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped>
 .container {
   max-width: 900px;
-  /* margin: 2rem auto; */
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+
+  
   line-height: 1.7;
   font-family: 'Segoe UI', sans-serif;
 }
 
-.main-heading {
-  font-size: 2rem;
-  color: #4a148c;
-  text-align: center;
-  margin-bottom: 1.5rem;
+.content > div {
+  margin-bottom: 3rem;
 }
 
-.date {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1.5rem;
-}
-
-.date input[type="datetime-local"] {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.content img {
   width: 100%;
-  max-width: 250px;
+  height: auto;
+  margin: 1rem 0;
 }
 
 .content h2 {
-  color: #6a1b9a;
+  /* color: #6a1b9a; */
   font-size: 1.5rem;
   margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.content h3 {
+  font-size: 1.7rem;
+  /* color: #2e1663; */
+  margin-bottom: 1rem;
 }
 
 .content p {
@@ -159,34 +129,26 @@
     padding: 1.5rem 1rem;
   }
 
-  .main-heading {
-    font-size: 1.6rem;
-  }
-
   .content h2 {
     font-size: 1.3rem;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
   }
 
   .content p {
     font-size: 0.95rem;
   }
-
-  .date {
-    justify-content: flex-start;
-  }
-
-  .date input {
-    width: 100%;
-  }
 }
 
 @media (max-width: 480px) {
-  .main-heading {
-    font-size: 1.3rem;
-  }
-
   .content h2 {
     font-size: 1.1rem;
+  }
+
+  .content h3 {
+    font-size: 1.2rem;
   }
 
   .content p {
