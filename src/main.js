@@ -14,8 +14,6 @@ import 'v-calendar/dist/style.css';
 
 setupAxiosInterceptors(router);
 
-const app = createApp(App);
-
 // Use VCalendar with default settings
 app.use(VCalendar, {})
    .use(router)
