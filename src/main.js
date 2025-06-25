@@ -14,19 +14,14 @@ import 'v-calendar/dist/style.css';
 
 const app = createApp(App);
 
+// Setup Axios interceptors
 setupAxiosInterceptors(router);
 
-// Use VCalendar with default settings
-app.use(VCalendar, {})
-   .use(router)
-   .use(createPinia())
-   .mount("#app");
-
-// Register plugins
+// Register all plugins and components once
+app.use(VCalendar, {});
 app.use(router);
 app.use(createPinia());
 app.component('apexchart', VueApexCharts);
 
-// Mount to DOM
+// Mount the app
 app.mount("#app");
-
