@@ -19,8 +19,6 @@ app.use(VCalendar, {})
    .use(router)
    .use(createPinia())
    .mount("#app");
-// Only create the app ONCE
-const app = createApp(App);
 
 // Register plugins
 app.use(router);
