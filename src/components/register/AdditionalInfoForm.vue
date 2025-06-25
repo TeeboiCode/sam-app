@@ -1,12 +1,16 @@
 <template>
   <div class="fade-in">
     <h2 class="text-center mb-4">AdditionalInfo Form</h2>
-
+    
     <div class="mb-4">
-      <select
-        class="form-control"
-        id="maritalStatus"
+      <v-select
         v-model="localFormData.maritalStatus"
+        :options="maritalStatusOptions"
+        :reduce="val => val.value"
+        label="label"
+        placeholder="Select Marital Status"
+        :searchable="false"
+        :class="{ 'is-invalid': touched.maritalStatus && errors.maritalStatus }"
         @blur="
           () => {
             touched.maritalStatus = true;
@@ -14,17 +18,14 @@
           }
         "
         @input="validateField('maritalStatus')"
-        :class="{ 'is-invalid': touched.maritalStatus && errors.maritalStatus }"
-        required
+        :clearable="false"
       >
-        <option value="" disabled>Select Marital Status</option>
-        <option value="Single">Single</option>
-        <option value="Married">Married</option>
-        <option value="Divorced">Divorced</option>
-        <option value="Widowed">Widowed</option>
-      </select>
+        <template #no-options>
+          <div class="text-muted">No options available</div>
+        </template>
+      </v-select>
       <div
-        class="invalid-feedback"
+        class="invalid-feedback d-block"
         v-if="touched.maritalStatus && errors.maritalStatus"
       >
         {{ errors.maritalStatus }}
@@ -371,6 +372,16 @@
 
 <script setup>
 import { ref, watch, onMounted, computed } from "vue";
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+
+// Marital status options
+const maritalStatusOptions = [
+  { label: 'Single', value: 'Single' },
+  { label: 'Married', value: 'Married' },
+  { label: 'Divorced', value: 'Divorced' },
+  { label: 'Widowed', value: 'Widowed' }
+];
 
 const props = defineProps({
   modelValue: {
@@ -763,7 +774,7 @@ const handleManualDateInput = (inputValue) => {
         day <= 31 &&
         year >= 1900 &&
         year <= 2100
-      ) {
+      ) { 
         const date = new Date(year, month - 1, day);
 
         // Check if the date is valid (handles leap years, etc.)
@@ -807,6 +818,165 @@ const handleDateInput = (event) => {
 </script>
 
 <style scoped>
+/* Form validation styles */
+.is-Invalid .vs__dropdown-toggle,
+.is-Invalid.vs__dropdown-toggle {
+  border-color: #dc3545 !important; 
+}
+
+.is-Invalid .vs__dropdown-toggle:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* For regular form controls */
+.is-invalid:not(.vs__dropdown-toggle) {
+  border-color: #dc3545 !important;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.is-invalid:not(.vs__dropdown-toggle):focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+/* vue-select styles to match Bootstrap form controls */
+
+:deep(.vs__dropdown-toggle) {
+  padding: 0.375rem 1rem;
+  margin: 0;
+  border: 2px solid var(--light-purple);
+  border-radius: 0.5rem;
+  min-height: 38px;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+:deep(.vs__selected) {
+  margin: 0;
+  padding: 0.375rem 0 !important;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+:deep(.vs__dropdown-menu) {
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 0;
+  width: 100%;
+}
+
+:deep(.vs__dropdown-option) {
+  padding: 0.5rem 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+:deep(.vs__dropdown-option--highlight) {
+  background: var(--royal-purple);
+  color: #fff;
+}
+
+:deep(.vs__clear),
+:deep(.vs__open-indicator) {
+  fill: var(--royal-purple);
+  width: 13px;
+  height: 13px;
+  padding: 2px;
+  box-sizing: content-box;
+}
+
+:deep(.vs--open .vs__dropdown-toggle) {
+  border-color: var(--light-purple);
+  box-shadow: 0 0 0 0.2rem rgba(107, 70, 193, 0.25);
+}
+
+
+
+:deep(.vs--single .vs__selected) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.375rem 0.75rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+:deep(.vs--single.vs--open .vs__selected) {
+  opacity: 0.4;
+}
+
+:deep(.vs__search) {
+  padding: 0.3rem 0;
+}
+
+/* Focus state */
+:deep(.vs__dropdown-toggle:focus) {
+  border: 2px solid var(--royal-purple);
+  box-shadow: 0 0 0 0.2rem rgba(107, 70, 193, 0.25);
+}
+
+/* Error state */
+:deep(.is-invalid .vs__dropdown-toggle) {
+  border-color: #dc3545;
+}
+
+:deep(.is-invalid .vs__dropdown-toggle:focus) {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Disabled state */
+:deep(.vs--disabled .vs__dropdown-toggle) {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+:deep(.vs--disabled .vs__clear),
+:deep(.vs--disabled .vs__open-indicator) {
+  display: none;
+}
+
+
+/* Make sure the select has the same height as other form controls */
+:deep(.v-select) {
+  width: 100%;
+}
+
+:deep(.vs__selected-options) {
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+:deep(.vs__actions) {
+  padding: 4px 6px 0 8px;
+  display: flex;
+  align-items: center;
+  min-width: 24px;
+}
+
+:deep(.vs__search::placeholder) {
+  color: #6c757d;
+  opacity: 1;
+}
+
 .fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
