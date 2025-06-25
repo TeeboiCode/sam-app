@@ -33,6 +33,15 @@
     <router-link class="btn btn-dark" to="/kcee3" role="button"
       >Kcee Task3</router-link
     >
+    <router-link class="btn btn-dark" to="/Layo1" role="button"
+      >Layo Task1</router-link
+    >
+    <router-link class="btn btn-dark" to="/Layo2" role="button"
+      >Layo Task2</router-link
+    >
+    <router-link class="btn btn-dark" to="/Layo3" role="button"
+      >Layo Task3</router-link
+    >
 
 
     <!-- <router-link

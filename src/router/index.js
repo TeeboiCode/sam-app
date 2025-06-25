@@ -14,7 +14,6 @@ import RaufTask from "../components/TaskFolder/RaufTask.vue";
 import RaufTask2 from "../components/TaskFolder/RaufTask2.vue";
 import RaufTask3 from "../components/TaskFolder/RaufTask3.vue";
 
-
 import LayoTask from "../components/TaskFolder/LayoTask.vue";
 import SeunTask from "../components/TaskFolder/SeunTask.vue";
 import KceeTask from "../components/TaskFolder/KceeTask.vue";
@@ -22,6 +21,9 @@ import KceeTask2 from "../components/TaskFolder/KceeTask2.vue";
 import KceeTask3 from "../components/TaskFolder/KceeTask3.vue";
 import SeyiTask from "../components/TaskFolder/SeyiTask.vue";
 import Rauf2 from "../components/TaskFolder/Rauf2.vue";
+import Layo1 from "../components/TaskFolder/Layo1.vue";
+import Layo2 from "../components/TaskFolder/Layo2.vue";
+import Layo3 from "../components/TaskFolder/Layo3.vue";
 
 // Admin Dashboard
 // import AdminDashboard from "../views/AdminDashboard.vue";
@@ -131,7 +133,21 @@ const routes = [
     name: "SeyiTask",
     component: SeyiTask,
   },
-
+  {
+    path: "/Layo1",
+    name: "Layo1",
+    component: Layo1,
+  },
+  {
+    path: "/Layo2",
+    name: "Layo2",
+    component: Layo2,
+  },
+  {
+    path: "/Layo3",
+    name: "Layo3",
+    component: Layo3,
+  },
 
   // Admin Dashboard
   // {
@@ -152,7 +168,6 @@ const routes = [
   // {
   //   path: "/tutorDashboard",
   //   name: "TutorDashboard",
-
 ];
 
 const router = createRouter({
