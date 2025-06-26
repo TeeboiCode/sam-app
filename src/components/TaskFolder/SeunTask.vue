@@ -3,13 +3,14 @@
     <div class="faq-header">
       <h1>Get every single answer here.</h1>
       <p>
-        A business or organization established to provide a particular service, typically one that involves organizing transactions.
+        A business or organization established to provide a particular service,
+        typically one that involves organizing transactions.
       </p>
     </div>
-    
+
     <div class="accordion">
-      <div 
-        v-for="(item, index) in accordionItems" 
+      <div
+        v-for="(item, index) in accordionItems"
         :key="index"
         class="accordion__item"
         :class="{ 'accordion__item--active': activeIndex === index }"
@@ -22,7 +23,7 @@
           <span class="accordion__title">{{ item.title }}</span>
           <ChevronDown class="accordion__icon" />
         </button>
-        
+
         <Transition
           name="accordion"
           @before-enter="beforeEnter"
@@ -55,9 +56,15 @@
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>All Users</h2>
         <div>
-          <button class="btn btn-primary me-2"><i class="bi bi-plus me-1"></i> Add User</button>
-          <button class="btn btn-danger me-2"><i class="bi bi-trash me-1"></i> Delete Selected</button>
-          <button class="btn btn-success"><i class="bi bi-upload me-1"></i> Import</button>
+          <button class="btn btn-primary me-2">
+            <i class="bi bi-plus me-1"></i> Add User
+          </button>
+          <button class="btn btn-danger me-2">
+            <i class="bi bi-trash me-1"></i> Delete Selected
+          </button>
+          <button class="btn btn-success">
+            <i class="bi bi-upload me-1"></i> Import
+          </button>
         </div>
       </div>
 
@@ -65,7 +72,7 @@
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="d-flex align-items-center">
           Show
-          <select class="form-select form-select-sm mx-2" style="width: auto;">
+          <select class="form-select form-select-sm mx-2" style="width: auto">
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
@@ -99,7 +106,12 @@
               <td><input type="checkbox" /></td>
               <td>{{ user.id }}</td>
               <td>
-                <img :src="user.profilePicture" alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;" />
+                <img
+                  :src="user.profilePicture"
+                  alt="Profile Picture"
+                  class="rounded-circle"
+                  style="width: 50px; height: 50px; object-fit: cover"
+                />
               </td>
               <td class="text-start">
                 <div><strong>Name:</strong> {{ user.name }}</div>
@@ -112,12 +124,22 @@
               </td>
               <td>
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" :checked="user.isActive" />
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    :checked="user.isActive"
+                  />
                 </div>
               </td>
               <td>
                 <div class="dropdown">
-                  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button
+                    class="btn btn-secondary btn-sm dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     <i class="bi bi-three-dots"></i>
                   </button>
                   <ul class="dropdown-menu">
@@ -135,7 +157,9 @@
       <!-- Pagination -->
       <nav>
         <ul class="pagination">
-          <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+          </li>
           <li class="page-item active"><a class="page-link" href="#">1</a></li>
           <li class="page-item"><a class="page-link" href="#">2</a></li>
           <li class="page-item"><a class="page-link" href="#">Next</a></li>
@@ -146,32 +170,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { ChevronDown } from 'lucide-vue-next';
+import { ref } from "vue";
+import { ChevronDown } from "lucide-vue-next";
 
 const activeIndex = ref(null);
 
 const accordionItems = ref([
   {
-    title: 'Downloading Courses',
-    content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+    title: "Downloading Courses",
+    content:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
   },
   {
-    title: 'Lifetime Access',
-    content: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.'
+    title: "Lifetime Access",
+    content:
+      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
   },
   {
-    title: 'Account/Profile',
-    content: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+    title: "Account/Profile",
+    content:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
   },
   {
-    title: 'Course Taking',
-    content: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.'
+    title: "Course Taking",
+    content:
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.",
   },
   {
-    title: 'Troubleshooting',
-    content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-  }
+    title: "Troubleshooting",
+    content:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+  },
 ]);
 
 const toggleAccordion = (index) => {
@@ -180,38 +209,38 @@ const toggleAccordion = (index) => {
 
 // Transition hooks for smooth accordion animation
 const beforeEnter = (el) => {
-  el.style.height = '0';
-  el.style.overflow = 'hidden';
+  el.style.height = "0";
+  el.style.overflow = "hidden";
 };
 
 const enter = (el) => {
   el.offsetHeight; // Force reflow
-  el.style.height = el.scrollHeight + 'px';
+  el.style.height = el.scrollHeight + "px";
 };
 
 const afterEnter = (el) => {
-  el.style.height = '';
-  el.style.overflow = '';
+  el.style.height = "";
+  el.style.overflow = "";
 };
 
 const beforeLeave = (el) => {
-  el.style.height = el.scrollHeight + 'px';
-  el.style.overflow = 'hidden';
+  el.style.height = el.scrollHeight + "px";
+  el.style.overflow = "hidden";
   el.offsetHeight; // Force reflow
 };
 
 const leave = (el) => {
-  el.style.height = '0';
+  el.style.height = "0";
 };
 
 const afterLeave = (el) => {
-  el.style.height = '';
-  el.style.overflow = '';
+  el.style.height = "";
+  el.style.overflow = "";
 };
 </script>
 
 <style scoped>
-@import '@/assets/styles/custom.css';
+@import "@/assets/styles/custom.css";
 
 .faq-container {
   max-width: 48rem;
@@ -319,36 +348,5 @@ const afterLeave = (el) => {
 .accordion-enter-from,
 .accordion-leave-to {
   height: 0 !important;
-
-const users = ref([
-  {
-    id: 1,
-    profilePicture: 'https://via.placeholder.com/150',
-    name: 'Admin Mediacity',
-    email: 'admin@mediacity.co.in',
-    mobile: '+917777777777',
-    role: 'admin',
-    isActive: true,
-  },
-  {
-    id: 2,
-    profilePicture: 'https://via.placeholder.com/150',
-    name: 'User Mediacity',
-    email: 'user@mediacitygmail.com',
-    mobile: '9876543219',
-    role: 'user',
-    isActive: false,
-  },
-  {
-    id: 3,
-    profilePicture: 'https://via.placeholder.com/150',
-    name: 'Instructor Mediacity',
-    email: 'instructor@mediacitygmail.com',
-    mobile: '9876543219',
-    role: 'instructor',
-    isActive: true,
-  },
-]);
-</script>
-
-<style scoped></style>
+}
+</style>
