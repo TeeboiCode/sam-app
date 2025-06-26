@@ -33,7 +33,7 @@
         </div>
         <div class="d-flex align-items-center">
           Search:
-          <input type="text" class="form-control form-control-sm ms-2">
+          <input type="text" class="form-control form-control-sm ms-2" />
         </div>
       </div>
 
@@ -42,7 +42,7 @@
         <table class="table table-striped table-bordered">
           <thead>
             <tr class="text-start">
-              <th><input type="checkbox"></th>
+              <th><input type="checkbox" /></th>
               <th>#</th>
               <th>Profile Picture</th>
               <th>Users Details</th>
@@ -54,10 +54,10 @@
           </thead>
           <tbody>
             <tr v-for="user in users" :key="user.id">
-              <td><input type="checkbox"></td>
+              <td><input type="checkbox" /></td>
               <td>{{ user.id }}</td>
               <td>
-                <img :src="user.profilePicture" alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                <img :src="user.profilePicture" alt="Profile Picture" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;" />
               </td>
               <td class="text-start">
                 <div><strong>Name:</strong> {{ user.name }}</div>
@@ -66,16 +66,14 @@
               </td>
               <td class="text-start">{{ user.role }}</td>
               <td class="text-start">
-                <i class="bi bi-key"></i> <!-- Key icon placeholder -->
+                <i class="bi bi-key"></i>
               </td>
               <td>
-                <!-- Status Toggle Placeholder -->
                 <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" :checked="user.isActive">
+                  <input class="form-check-input" type="checkbox" role="switch" :checked="user.isActive" />
                 </div>
               </td>
               <td>
-                <!-- Action Menu Placeholder -->
                 <div class="dropdown">
                   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-three-dots"></i>
@@ -92,7 +90,7 @@
         </table>
       </div>
 
-      <!-- Pagination Placeholder -->
+      <!-- Pagination -->
       <nav>
         <ul class="pagination">
           <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -111,7 +109,7 @@ import { ref } from 'vue';
 const users = ref([
   {
     id: 1,
-    profilePicture: 'https://via.placeholder.com/150', // Placeholder image
+    profilePicture: 'https://via.placeholder.com/150',
     name: 'Admin Mediacity',
     email: 'admin@mediacity.co.in',
     mobile: '+917777777777',
@@ -120,25 +118,23 @@ const users = ref([
   },
   {
     id: 2,
-    profilePicture: 'https://via.placeholder.com/150', // Placeholder image
-    name: 'user mediacity',
+    profilePicture: 'https://via.placeholder.com/150',
+    name: 'User Mediacity',
     email: 'user@mediacitygmail.com',
     mobile: '9876543219',
     role: 'user',
     isActive: false,
   },
   {
-    id: 2,
-    profilePicture: 'https://via.placeholder.com/150', // Placeholder image
-    name: 'instructor mediacity',
+    id: 3,
+    profilePicture: 'https://via.placeholder.com/150',
+    name: 'Instructor Mediacity',
     email: 'instructor@mediacitygmail.com',
     mobile: '9876543219',
     role: 'instructor',
     isActive: true,
-  }
+  },
 ]);
-
-// You will need to add logic for filtering, searching, pagination, and selection here
 </script>
 
 <style scoped>
