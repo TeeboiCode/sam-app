@@ -18,9 +18,6 @@
       >Rauf Task3</router-link
     >
 
-    <router-link class="btn btn-secondary" to="/layo" role="button"
-      >Layo Task</router-link
-    >
     <router-link class="btn btn-danger" to="/seun" role="button"
       >Seun Task</router-link
     >
@@ -42,7 +39,6 @@
     <router-link class="btn btn-dark" to="/Layo3" role="button"
       >Layo Task3</router-link
     >
-
 
     <!-- <router-link
       class="btn btn-success"
