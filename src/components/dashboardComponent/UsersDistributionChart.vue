@@ -10,43 +10,42 @@
   </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue'
-import VueApexCharts from 'vue3-apexcharts'
+import { ref } from "vue";
+import VueApexCharts from "vue3-apexcharts";
 
 // ✅ Register the component
-const apexchart = VueApexCharts
+const apexchart = VueApexCharts;
 
 const series = ref([2, 6, 39]);
 
 const chartOptions = ref({
   chart: {
-    type: 'radialBar',
+    type: "radialBar",
   },
   plotOptions: {
     radialBar: {
       offsetY: 0,
       hollow: {
         margin: 10,
-        size: '30%',
+        size: "30%",
       },
       track: {
-        background: '#f2f2f2',
-        strokeWidth: '100%',
+        background: "#f2f2f2",
+        strokeWidth: "100%",
       },
       dataLabels: {
         show: false,
       },
     },
   },
-  colors: ['#4e7fff', '#2ecc71', '#f7b731'],
-  labels: ['Admin', 'Instructor', 'User'],
+  colors: ["#4e7fff", "#2ecc71", "#f7b731"],
+  labels: ["Admin", "Instructor", "User"],
   legend: {
     show: true,
-    position: 'left',
+    position: "left",
     formatter: function (seriesName, opts) {
-      return seriesName + ': ' + series.value[opts.seriesIndex];
+      return seriesName + ": " + series.value[opts.seriesIndex];
     },
     markers: {
       width: 10,
