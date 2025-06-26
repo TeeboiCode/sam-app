@@ -11,6 +11,13 @@
     <router-link class="btn btn-primary" to="/rauf" role="button"
       >Rauf Task</router-link
     >
+    <router-link class="btn btn-primary" to="/rauf2" role="button"
+      >Rauf Task2</router-link
+    >
+    <router-link class="btn btn-primary" to="/rauf3" role="button"
+      >Rauf Task3</router-link
+    >
+
     <router-link class="btn btn-secondary" to="/layo" role="button"
       >Layo Task</router-link
     >
@@ -26,7 +33,16 @@
     <router-link class="btn btn-dark" to="/kcee3" role="button"
       >Kcee Task3</router-link
     >
-    <!-- <router-link class="btn btn-info" to="/seyi" role="button">Seyi Task</router-link> -->
+    <router-link class="btn btn-dark" to="/Layo1" role="button"
+      >Layo Task1</router-link
+    >
+    <router-link class="btn btn-dark" to="/Layo2" role="button"
+      >Layo Task2</router-link
+    >
+    <router-link class="btn btn-dark" to="/Layo3" role="button"
+      >Layo Task3</router-link
+    >
+
 
     <!-- <router-link
       class="btn btn-success"
