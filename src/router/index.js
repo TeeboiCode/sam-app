@@ -15,6 +15,8 @@ import RaufTask2 from "../components/TaskFolder/RaufTask2.vue";
 import RaufTask3 from "../components/TaskFolder/RaufTask3.vue";
 
 import SeunTask from "../components/TaskFolder/SeunTask.vue";
+import SeunTask2 from "../components/TaskFolder/SeunTask2.vue";
+import SeunTask3 from "../components/TaskFolder/SeunTask3.vue";
 import KceeTask from "../components/TaskFolder/KceeTask.vue";
 import KceeTask2 from "../components/TaskFolder/KceeTask2.vue";
 import KceeTask3 from "../components/TaskFolder/KceeTask3.vue";
@@ -106,6 +108,16 @@ const routes = [
     path: "/seun",
     name: "SeunTask",
     component: SeunTask,
+  },
+  {
+    path: "/seun2",
+    name: "SeunTask2",
+    component: SeunTask2,
+  },
+  {
+    path: "/seun3",
+    name: "SeunTask3",
+    component: SeunTask3,
   },
   {
     path: "/kcee",
