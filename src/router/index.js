@@ -32,7 +32,6 @@ import Layo3 from "../components/TaskFolder/Layo3.vue";
 // import ParentDashboard from "../views/ParentDashboard.vue";
 // import TutorDashboard from "../views/TutorDashboard.vue";
 
-import StudentProfile from "../views/Dashboard/StudentProfile.vue";
 
 const routes = [
   { path: "/", name: "Home", component: () => import("@/views/Home.vue") },
@@ -181,6 +180,12 @@ const routes = [
     name: "Wishlist",
     component: () =>
       import("@/views/Dashboard/Student-Dashboard/StudentCourses.vue"),
+  },
+  {
+    path: "/student/profile",
+    name: "StudentProfile",
+    component: () =>
+      import("../views/Dashboard/Student-Dashboard/StudentProfileView.vue"),
   },
 ];
 
