@@ -17,7 +17,7 @@ export const useUsersStore = defineStore("users", {
   },
 
   actions: {
-    async registerUser(formData) {
+    async registerUser(formData, router) {
       try {
         const response = await axios.post(
           `${API_URL}/api/auth/signup`,
@@ -33,7 +33,7 @@ export const useUsersStore = defineStore("users", {
           confirmButtonText: "OK",
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = "/login";
+            router.push("/login");
           }
         });
 
