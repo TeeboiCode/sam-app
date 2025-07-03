@@ -117,12 +117,6 @@ const routes = [
     component: () => import("@/components/TaskFolder/Layo3.vue"),
   },
   {
-    path: "/student/profile",
-    name: "StudentProfile",
-    component: () =>
-      import("../views/Dashboard/Student-Dashboard/StudentProfileView.vue"),
-  },
-  {
     path: "/checkComponent",
     name: "CheckComponent",
     component: () => import("@/components/ui/CheckComponent.vue"),
