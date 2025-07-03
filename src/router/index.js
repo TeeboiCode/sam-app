@@ -1,4 +1,38 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
+import TaskAdditionalInfoForm from "../components/TaskFolder/TaskAdditionalInfoForm.vue";
+import TaskProfilePhotoUpload from "../components/TaskFolder/TaskProfilePhotoUpload.vue";
+import TaskPersonalDetailsForm from "../components/TaskFolder/TaskPersonalDetailsForm.vue";
+import TaskPaymentForm from "../components/TaskFolder/TaskPaymentForm.vue";
+import TaskStepIndicator from "../components/TaskFolder/TaskStepIndicator.vue";
+import notice from "../views/notice.vue";
+import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
+import ForgetPassword from "../views/ForgetPassword.vue";
+import RaufTask from "../components/TaskFolder/RaufTask.vue";
+import RaufTask2 from "../components/TaskFolder/RaufTask2.vue";
+import RaufTask3 from "../components/TaskFolder/RaufTask3.vue";
+
+import SeunTask from "../components/TaskFolder/SeunTask.vue";
+import SeunTask2 from "../components/TaskFolder/SeunTask2.vue";
+import SeunTask3 from "../components/TaskFolder/SeunTask3.vue";
+import KceeTask from "../components/TaskFolder/KceeTask.vue";
+import KceeTask2 from "../components/TaskFolder/KceeTask2.vue";
+import KceeTask3 from "../components/TaskFolder/KceeTask3.vue";
+import SeyiTask from "../components/TaskFolder/SeyiTask.vue";
+import Rauf2 from "../components/TaskFolder/Rauf2.vue";
+import Layo1 from "../components/TaskFolder/Layo1.vue";
+import Layo2 from "../components/TaskFolder/Layo2.vue";
+import Layo3 from "../components/TaskFolder/Layo3.vue";
+
+// Admin Dashboard
+// import AdminDashboard from "../views/AdminDashboard.vue";
+// import StudentDashboard from "../views/StudentDashboard.vue";
+// import ParentDashboard from "../views/ParentDashboard.vue";
+// import TutorDashboard from "../views/TutorDashboard.vue";
+
+import StudentProfile from "../views/Dashboard/StudentProfile.vue";
 
 const routes = [
   { path: "/", name: "Home", component: () => import("@/views/Home.vue") },
@@ -80,6 +114,16 @@ const routes = [
     path: "/seun",
     name: "SeunTask",
     component: () => import("@/components/TaskFolder/SeunTask.vue"),
+  },
+  {
+    path: "/seun2",
+    name: "SeunTask2",
+    component: SeunTask2,
+  },
+  {
+    path: "/seun3",
+    name: "SeunTask3",
+    component: SeunTask3,
   },
   {
     path: "/kcee",

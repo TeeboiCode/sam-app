@@ -21,6 +21,12 @@
     <router-link class="btn btn-danger" to="/seun" role="button"
       >Seun Task</router-link
     >
+    <router-link class="btn btn-primary" to="/seun2" role="button"
+      >Seun Task2</router-link
+    >
+    <router-link class="btn btn-primary" to="/seun3" role="button"
+      >Seun Task3</router-link
+    >
     <router-link class="btn btn-dark" to="/kcee" role="button"
       >Kcee Task1</router-link
     >
