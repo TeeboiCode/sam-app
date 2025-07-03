@@ -120,7 +120,7 @@ const routes = [
     path: "/student/profile",
     name: "StudentProfile",
     component: () =>
-      import("@/views/Dashboard/Student-Dashboard/StudentProfile.vue"),
+      import("../views/Dashboard/Student-Dashboard/StudentProfileView.vue"),
   },
   {
     path: "/checkComponent",
