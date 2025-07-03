@@ -17,9 +17,9 @@
 </template>
 
 <script setup>
-import ProfileCardVue from "../../components/dashboardComponent/ProfileCard.vue";
-import ProfileFrom from "../../components/dashboardComponent/ProfileForm.vue";
-import ProfileLink from "../../components/dashboardComponent/ProfileLinks.vue";
+import ProfileCardVue from "../../../components/dashboardComponent/ProfileCard.vue";
+import ProfileFrom from "../../../components/dashboardComponent/ProfileForm.vue";
+import ProfileLink from "../../../components/dashboardComponent/ProfileLinks.vue";
 </script>
 
 <style lang="scss" scoped></style>

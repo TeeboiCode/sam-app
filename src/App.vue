@@ -8,6 +8,7 @@
       border: 1px solid black;
     "
   >
+
    <!-- <linkeVue /> -->
     <NavigationVue />
 
@@ -19,8 +20,10 @@
 
 <script setup>
 // import linkeVue from "./components/linksfiles.vue/linke.vue";
+
 import FooterVue from "./components/footer/Footer.vue";
 import NavigationVue from "./views/Navigation.vue";
+
 </script>
 
 <style scoped></style>

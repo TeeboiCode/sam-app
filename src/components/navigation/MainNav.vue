@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light bg-white border-bottom py-3">
+  <nav class="navbar navbar-light bg-white sticky-top border-bottom py-3">
     <div class="container d-flex justify-content-between align-items-center">
       <!-- Logo (Mobile) -->
       <router-link class="navbar-brand d-lg-none d-sm-flex" to="/">
@@ -55,12 +55,12 @@
                   v-show="openSubmenu === 'waec'"
                 >
                   <li>
-                    <router-link class="dropdown-item" to="#"
+                    <router-link class="dropdown-item" to="/checkComponent"
                       >WAEC Registration</router-link
                     >
                   </li>
                   <li>
-                    <router-link class="dropdown-item" to="#"
+                    <router-link class="dropdown-item" to="/createComponent"
                       >WAEC Tutorial</router-link
                     >
                   </li>
@@ -231,7 +231,10 @@
               </div>
             </li>
 
-            <li class="wishlist-icon position-relative">
+            <li
+              class="wishlist-icon position-relative"
+              @click="router.push('/wishlist')"
+            >
               <i class="bi bi-suit-heart"></i>
               <span
                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -261,13 +264,13 @@
               <div class="dropdown-header">
                 <div class="user-img">
                   <img
-                    src="https://randomuser.me/api/portraits/men/75.jpg"
+                    src="https://cdn.whu.edu/fileadmin/_processed_/8/1/csm_AdobeStock_215844325_ba2ab1eb3c.jpg"
                     alt="User"
                   />
                 </div>
                 <div class="user-info">
                   <div class="name fs-6 fw-semibold">
-                    Oluwaleye
+                    {{ user.firstName }} {{ user.lastName }}
                     <span
                       ><img
                         style="width: 15px; height: 15px"
@@ -301,13 +304,15 @@
                 <!-- Profile Header -->
                 <div class="dropdown-header">
                   <img
-                    src="https://randomuser.me/api/portraits/men/75.jpg"
+                    src="https://cdn.whu.edu/fileadmin/_processed_/8/1/csm_AdobeStock_215844325_ba2ab1eb3c.jpg"
                     alt="User"
                     style="width: 50px; height: 50px; border-radius: 50%"
                   />
                   <div class="user-info">
-                    <div class="name fs-4">Oluwaleye Oluwaleye</div>
-                    <div class="email">user@mediacity.co.in</div>
+                    <div class="name fs-4">
+                      {{ user.firstName }} {{ user.lastName }}
+                    </div>
+                    <div class="email">{{ user.email }}</div>
                   </div>
                 </div>
               </div>
@@ -320,7 +325,8 @@
                 <div
                   class="p-links d-flex align-items-center border-bottom"
                   v-for="profileItem in profileItems"
-                  :key="profileItem.id" @click="router.push(profileItem.router)"
+                  :key="profileItem.id"
+                  @click="router.push(profileItem.router)"
                 >
                   <div class="dropdown-item px-4 py-3">
                     <i>{{ profileItem.icon }}</i> {{ profileItem.label }}
@@ -587,7 +593,7 @@ const profileItems = [
     id: 1,
     label: "My Courses",
     icon: "📘",
-    router: "/my-courses",
+    router: "/gotomycourses",
   },
   {
     id: 2,
@@ -607,35 +613,37 @@ const profileItems = [
     icon: "👤",
     router: "/student/profile",
   },
-  {
-    id: 5,
-    label: "Become An Instructor",
-    icon: "📣",
-    router: "/instructor",
-  },
-  {
-    id: 6,
-    label: "Flash Deals",
-    icon: "⚡",
-    router: "/flash-deals",
-  },
-  {
-    id: 7,
-    label: "Watchlist",
-    icon: "📺",
-    router: "/watchlist",
-  },
-  {
-    id: 8,
-    label: "Certificate Center",
-    icon: "🎓",
-    router: "/certificate-center",
-  },
+  // {
+  //   id: 5,
+  //   label: "Become An Instructor",
+  //   icon: "📣",
+  //   router: "/instructor",
+  // },
+  // {
+  //   id: 6,
+  //   label: "Flash Deals",
+  //   icon: "⚡",
+  //   router: "/flash-deals",
+  // },
+  // {
+  //   id: 7,
+  //   label: "Watchlist",
+  //   icon: "📺",
+  //   router: "/watchlist",
+  // },
+  // {
+  //   id: 8,
+  //   label: "Certificate Center",
+  //   icon: "🎓",
+  //   router: "/certificate-center",
+  // },
 ];
 
 const userStore = useUsersStore();
 const router = useRouter();
 const isLoggedIn = computed(() => !!userStore.getUser);
+
+const user = computed(() => userStore.getUser).value;
 
 const isMobileMenuOpen = ref(false);
 const isProgramsOpen = ref(false);

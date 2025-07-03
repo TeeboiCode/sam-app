@@ -1,0 +1,60 @@
+/* Background */
+.gradient-bg-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-bg-secondary {
+  background: var(--gradient-soft);
+}
+
+.gradient-bg-tertiary {
+  background: var(--gradient-soft-blend);
+}
+
+.gradient-bg-white {
+  background: var(--light-lavender);
+}
+
+/* Section */
+.section {
+  padding: var(--spacing-xxxl) var(--spacing-sm);
+}
+
+.section-title {
+  color: var(--accent-orange);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  font-size: 20px;
+}
+
+.section-subtitle {
+  color: var(--text-primary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xs);
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.section-description {
+  color: var(--medium-text);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+/* Card */
+.base-card-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: start;
+  text-transform: capitalize;
+}
+
+.base-card-description {
+  color: var(--text-muted);
+  margin-bottom: 0;
+  text-align: start;
+}

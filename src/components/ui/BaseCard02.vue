@@ -1,6 +1,6 @@
 <template>
   <div class="container-wrapper">
-    <div class="card p-4 ">
+    <div class="card p-4">
       <!-- Top Image Section -->
       <div class="image-section">
         <img src="@/assets/instructor.png" alt="Course" class="bg-image" />
@@ -44,7 +44,7 @@
 }
 .card {
   max-width: 350px;
-  border-radius: 16px;
+  border-radius: 0px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: "Segoe UI", sans-serif;
@@ -140,8 +140,8 @@
 .profile-img {
   position: absolute;
   top: -20px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 8px;

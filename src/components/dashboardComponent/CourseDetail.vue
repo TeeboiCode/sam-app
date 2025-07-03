@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h3>Seun Task 001</h3>
+    <h3>Course Detail</h3>
   </div>
 </template>
 
 <script setup></script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
+Course Detail

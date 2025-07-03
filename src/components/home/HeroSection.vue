@@ -1,9 +1,11 @@
 <template>
   <section class="hero-section">
     <div class="container">
-      <div class="row justify-content-center px-lg-5">
+      <div class="row justify-content-center">
         <div class="col-xl-6 p-0 text-start">
-          <div class="d-flex justify-content-center animate__animated animate__fadeInRight animate__slow">
+          <div
+            class="d-flex justify-content-center animate__animated animate__fadeInRight animate__slow"
+          >
             <img
               src="../../assets/styles/images/best e-learning.png"
               alt="text logo best e-learning"
@@ -22,7 +24,7 @@
           <div
             class="d-flex gap-3 justify-content-center justify-content-xl-start"
           >
-            <router-link to="/register" class="btn btn-primary btn-lg hero-btn ">
+            <router-link to="/register" class="btn btn-primary btn-lg hero-btn">
               <i class="bi bi-arrow-right me-2"></i>
               Enroll Now
             </router-link>
@@ -327,7 +329,7 @@ export default {
     font-size: 10px !important;
     padding: 10px !important;
   }
-  .hero-img-container{
+  .hero-img-container {
     display: none !important;
   }
 
@@ -350,7 +352,7 @@ export default {
   }
 
   .hero-stats-container .col-sm-4:not(:last-child)::after {
-    content: '';
+    content: "";
     position: absolute;
     right: 0;
     top: 20%;
@@ -359,10 +361,9 @@ export default {
     background-color: #666;
   }
 
-  .hero-img-container{
+  .hero-img-container {
     display: none !important;
   }
-
 }
 
 @media (min-width: 576px) {
@@ -380,7 +381,6 @@ export default {
     padding-left: 1rem;
     line-height: 0px;
   }
-
 }
 
 @media (min-width: 768px) {
@@ -429,8 +429,8 @@ export default {
 
 @media (max-width: 576px) {
   .hero-stats-container {
-    padding: 0.25rem 0.5rem !important; 
-    margin-top: 1rem !important; 
+    padding: 0.25rem 0.5rem !important;
+    margin-top: 1rem !important;
   }
 
   .hero-btn {
@@ -439,7 +439,7 @@ export default {
   }
 
   .hero-stats-container .col-sm-4 {
-    padding: 0.25rem 0.25rem !important; 
+    padding: 0.25rem 0.25rem !important;
   }
 
   .hero-stats-container .fig {
@@ -448,19 +448,18 @@ export default {
   }
 
   .hero-stats-container .title {
-    font-size: 11px !important; 
+    font-size: 11px !important;
     margin-top: 2px !important;
   }
 
   .rounded-count {
     width: 40px;
     height: 40px;
-    margin-bottom: 0.15rem !important; 
+    margin-bottom: 0.15rem !important;
   }
 
   .hero-stat {
     gap: 0.2rem !important; /* tighter vertical spacing between elements */
   }
 }
-
 </style>

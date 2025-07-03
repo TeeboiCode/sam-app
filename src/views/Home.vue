@@ -5,6 +5,7 @@
     <FeatureSectionVue />
     <HomeAbout />
     <ProgramsSectionVue />
+    <CTASectionVue />
     <TestimonySectionVue />
     <UpcomingEvents />
   </div>
@@ -16,7 +17,7 @@ import LogoSectionVue from "../components/home/Logo.vue";
 import FeatureSectionVue from "../components/home/FeatureSection.vue";
 import ProgramsSectionVue from "../components/home/ProgramsSection.vue";
 import TestimonySectionVue from "../components/home/TestimonySection.vue";
-
+import CTASectionVue from "../components/home/CTASection.vue";
 import HomeAbout from "../components/home/HomeAbout.vue";
 import UpcomingEvents from "../components/home/UpcomingEvents.vue";
 export default {
@@ -29,6 +30,7 @@ export default {
     TestimonySectionVue,
     HomeAbout,
     UpcomingEvents,
+    CTASectionVue,
   },
 };
 </script>
