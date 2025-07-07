@@ -17,6 +17,17 @@
     <router-link class="btn btn-primary" to="/rauf3" role="button"
       >Rauf Task3</router-link
     >
+     <router-link class="btn btn-primary" to="/rauf4" role="button"
+      >Rauf Task4</router-link
+    >
+    <router-link class="btn btn-primary" to="/rauf5" role="button"
+      >Rauf Task5</router-link
+    >
+    <router-link class="btn btn-primary" to="/rauf6" role="button"
+      >Rauf Task6</router-link
+    >
+    
+    
 
     <router-link class="btn btn-danger" to="/seun" role="button"
       >Seun Task</router-link
