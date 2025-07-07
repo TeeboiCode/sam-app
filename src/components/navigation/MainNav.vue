@@ -21,7 +21,11 @@
       >
         <!-- Logo (Desktop) -->
         <router-link class="navbar-brand" to="/">
-          <img src="/src/assets/Frame 1 1.png" alt="Logo" style="width: 150px" />
+          <img
+            src="/src/assets/Frame 1 1.png"
+            alt="Logo"
+            style="width: 150px"
+          />
         </router-link>
 
         <!-- Nav Items -->
@@ -35,53 +39,154 @@
             @mouseenter="isProgramsOpen = true"
             @mouseleave="isProgramsOpen = false"
           >
-            <a
-              href="#"
+            <router-link
               class="nav-link dropdown-toggle d-flex align-items-center gap-1"
-              @click.prevent
-            >
-              Programs
-              <i :class="isProgramsOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
-            </a>
+              to="/programs"
+              >Programs
+              <i
+                :class="
+                  isProgramsOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'
+                "
+              ></i
+            ></router-link>
             <ul class="dropdown-menu show" v-show="isProgramsOpen">
-              <li class="dropdown-submenu" @mouseenter="openSubmenu = 'waec'" @mouseleave="openSubmenu = null">
-                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+              <li
+                class="dropdown-submenu"
+                @mouseenter="openSubmenu = 'waec'"
+                @mouseleave="openSubmenu = null"
+              >
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
                   WAEC
-                  <i :class="openSubmenu === 'waec' ? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i>
+                  <i
+                    :class="
+                      openSubmenu === 'waec'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
                 </a>
-                <ul class="dropdown-menu nested" v-show="openSubmenu === 'waec'">
-                  <li><router-link class="dropdown-item" to="/checkComponent">WAEC Registration</router-link></li>
-                  <li><router-link class="dropdown-item" to="/createComponent">WAEC Tutorial</router-link></li>
-                  <li><router-link class="dropdown-item" to="#">WAEC Mock</router-link></li>
+                <ul
+                  class="dropdown-menu nested"
+                  v-show="openSubmenu === 'waec'"
+                >
+                  <li>
+                    <router-link class="dropdown-item" to="/checkComponent"
+                      >WAEC Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="/createComponent"
+                      >WAEC Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >WAEC Mock</router-link
+                    >
+                  </li>
                 </ul>
               </li>
-              <li class="dropdown-submenu" @mouseenter="openSubmenu = 'neco'" @mouseleave="openSubmenu = null">
-                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+              <li
+                class="dropdown-submenu"
+                @mouseenter="openSubmenu = 'neco'"
+                @mouseleave="openSubmenu = null"
+              >
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
                   NECO
-                  <i :class="openSubmenu === 'neco' ? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i>
+                  <i
+                    :class="
+                      openSubmenu === 'neco'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
                 </a>
-                <ul class="dropdown-menu nested" v-show="openSubmenu === 'neco'">
-                  <li><router-link class="dropdown-item" to="#">NECO Registration</router-link></li>
-                  <li><router-link class="dropdown-item" to="#">NECO Tutorial</router-link></li>
-                  <li><router-link class="dropdown-item" to="#">NECO Mock</router-link></li>
+                <ul
+                  class="dropdown-menu nested"
+                  v-show="openSubmenu === 'neco'"
+                >
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >NECO Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >NECO Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >NECO Mock</router-link
+                    >
+                  </li>
                 </ul>
               </li>
-              <li class="dropdown-submenu" @mouseenter="openSubmenu = 'jamb'" @mouseleave="openSubmenu = null">
-                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+              <li
+                class="dropdown-submenu"
+                @mouseenter="openSubmenu = 'jamb'"
+                @mouseleave="openSubmenu = null"
+              >
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
                   JAMB
-                  <i :class="openSubmenu === 'jamb' ? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i>
+                  <i
+                    :class="
+                      openSubmenu === 'jamb'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
                 </a>
-                <ul class="dropdown-menu nested" v-show="openSubmenu === 'jamb'">
-                  <li><router-link class="dropdown-item" to="#">JAMB Registration</router-link></li>
-                  <li><router-link class="dropdown-item" to="#">JAMB Tutorial</router-link></li>
-                  <li><router-link class="dropdown-item" to="#">JAMB CBT</router-link></li>
+                <ul
+                  class="dropdown-menu nested"
+                  v-show="openSubmenu === 'jamb'"
+                >
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >JAMB Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >JAMB Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link class="dropdown-item" to="#"
+                      >JAMB CBT</router-link
+                    >
+                  </li>
                 </ul>
               </li>
-              <li><router-link class="dropdown-item" to="#">All Courses</router-link></li>
+
+              <li>
+                <router-link class="dropdown-item" to="/programs"
+                  >All Program</router-link
+                >
+              </li>
+
+              <li>
+                <router-link class="dropdown-item" to="#"
+                  >All Courses</router-link
+                >
+              </li>
             </ul>
           </li>
-          <li class="nav-item"><router-link class="nav-link" to="/about">About Us</router-link></li>
-          <li class="nav-item"><router-link class="nav-link" to="/contact">Contact Us</router-link></li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/about">About Us</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/contact">Contact Us</router-link>
+          </li>
         </ul>
 
         <!-- Action buttons -->
@@ -94,78 +199,196 @@
 
     <!-- Mobile Menu -->
     <!-- Mobile Menu -->
-<transition name="slide">
-  <div v-if="isMobileMenuOpen" class="mobile-nav d-lg-none">
-    <button class="close-btn" @click="toggleMobileMenu">×</button>
-    <ul class="navbar-nav d-flex flex-column gap-3 mt-4">
-      <li class="nav-item">
-        <router-link class="nav-link" to="/" @click="toggleMobileMenu">Home</router-link>
-      </li>
+    <transition name="slide">
+      <div v-if="isMobileMenuOpen" class="mobile-nav d-lg-none">
+        <button class="close-btn" @click="toggleMobileMenu">×</button>
+        <ul class="navbar-nav d-flex flex-column gap-3 mt-4">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/" @click="toggleMobileMenu"
+              >Home</router-link
+            >
+          </li>
 
-      <!-- Programs (Mobile) -->
-      <li class="nav-item">
-        <div class="nav-link d-flex justify-content-between align-items-center" @click="isProgramsOpenMobile = !isProgramsOpenMobile">
-          Programs
-          <i :class="isProgramsOpenMobile ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
-        </div>
-
-        <ul v-show="isProgramsOpenMobile" class="ps-3 mt-2">
-          <!-- WAEC -->
-          <li>
-            <div class="nav-link d-flex justify-content-between" @click="openSubmenuMobile = openSubmenuMobile === 'waec' ? null : 'waec'">
-              WAEC
-              <i :class="openSubmenuMobile === 'waec' ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          <!-- Programs (Mobile) -->
+          <li class="nav-item">
+            <div
+              class="nav-link d-flex justify-content-between align-items-center"
+              @click="isProgramsOpenMobile = !isProgramsOpenMobile"
+            >
+              Programs
+              <i
+                :class="
+                  isProgramsOpenMobile
+                    ? 'fas fa-chevron-up'
+                    : 'fas fa-chevron-down'
+                "
+              ></i>
             </div>
-            <ul v-show="openSubmenuMobile === 'waec'" class="ps-3">
-              <li><router-link class="nav-link" to="/checkComponent" @click="toggleMobileMenu">WAEC Registration</router-link></li>
-              <li><router-link class="nav-link" to="/createComponent" @click="toggleMobileMenu">WAEC Tutorial</router-link></li>
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">WAEC Mock</router-link></li>
+
+            <ul v-show="isProgramsOpenMobile" class="ps-3 mt-2">
+              <!-- WAEC -->
+              <li>
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
+                    openSubmenuMobile =
+                      openSubmenuMobile === 'waec' ? null : 'waec'
+                  "
+                >
+                  WAEC
+                  <i
+                    :class="
+                      openSubmenuMobile === 'waec'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'waec'" class="ps-3">
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="/checkComponent"
+                      @click="toggleMobileMenu"
+                      >WAEC Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="/createComponent"
+                      @click="toggleMobileMenu"
+                      >WAEC Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >WAEC Mock</router-link
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <!-- NECO -->
+              <li>
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
+                    openSubmenuMobile =
+                      openSubmenuMobile === 'neco' ? null : 'neco'
+                  "
+                >
+                  NECO
+                  <i
+                    :class="
+                      openSubmenuMobile === 'neco'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'neco'" class="ps-3">
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >NECO Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >NECO Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >NECO Mock</router-link
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <!-- JAMB -->
+              <li>
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
+                    openSubmenuMobile =
+                      openSubmenuMobile === 'jamb' ? null : 'jamb'
+                  "
+                >
+                  JAMB
+                  <i
+                    :class="
+                      openSubmenuMobile === 'jamb'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'jamb'" class="ps-3">
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >JAMB Registration</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >JAMB Tutorial</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="#"
+                      @click="toggleMobileMenu"
+                      >JAMB CBT</router-link
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <!-- All Courses -->
+              <li>
+                <router-link class="nav-link" to="#" @click="toggleMobileMenu"
+                  >All Courses</router-link
+                >
+              </li>
             </ul>
           </li>
 
-          <!-- NECO -->
-          <li>
-            <div class="nav-link d-flex justify-content-between" @click="openSubmenuMobile = openSubmenuMobile === 'neco' ? null : 'neco'">
-              NECO
-              <i :class="openSubmenuMobile === 'neco' ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
-            </div>
-            <ul v-show="openSubmenuMobile === 'neco'" class="ps-3">
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">NECO Registration</router-link></li>
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">NECO Tutorial</router-link></li>
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">NECO Mock</router-link></li>
-            </ul>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/about" @click="toggleMobileMenu"
+              >About Us</router-link
+            >
           </li>
-
-          <!-- JAMB -->
-          <li>
-            <div class="nav-link d-flex justify-content-between" @click="openSubmenuMobile = openSubmenuMobile === 'jamb' ? null : 'jamb'">
-              JAMB
-              <i :class="openSubmenuMobile === 'jamb' ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
-            </div>
-            <ul v-show="openSubmenuMobile === 'jamb'" class="ps-3">
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">JAMB Registration</router-link></li>
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">JAMB Tutorial</router-link></li>
-              <li><router-link class="nav-link" to="#" @click="toggleMobileMenu">JAMB CBT</router-link></li>
-            </ul>
-          </li>
-
-          <!-- All Courses -->
-          <li>
-            <router-link class="nav-link" to="#" @click="toggleMobileMenu">All Courses</router-link>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/contact"
+              @click="toggleMobileMenu"
+              >Contact Us</router-link
+            >
           </li>
         </ul>
-      </li>
-
-      <li class="nav-item">
-        <router-link class="nav-link" to="/about" @click="toggleMobileMenu">About Us</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/contact" @click="toggleMobileMenu">Contact Us</router-link>
-      </li>
-    </ul>
-  </div>
-</transition>
-
+      </div>
+    </transition>
   </nav>
 </template>
 

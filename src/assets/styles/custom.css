@@ -39,7 +39,7 @@ p {
 }
 
 .link-container:hover img {
-  transform: translateX(10px) !important;
+  transform: translateX(6px) !important;
 }
 
 /* Buttons */

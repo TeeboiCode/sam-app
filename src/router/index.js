@@ -37,7 +37,6 @@ import Layo3 from "../components/TaskFolder/Layo3.vue";
 // import ParentDashboard from "../views/ParentDashboard.vue";
 // import TutorDashboard from "../views/TutorDashboard.vue";
 
-
 const routes = [
   { path: "/", name: "Home", component: () => import("@/views/Home.vue") },
   {
@@ -208,6 +207,12 @@ const routes = [
     component: () =>
       import("../views/Dashboard/Student-Dashboard/StudentProfileView.vue"),
   },
+  {
+    path: "/programs",
+    name: "Programs",
+    component: () =>
+      import("../views/Dashboard/Student-Dashboard/AllPrograms.vue"),
+  },
 ];
 
 const router = createRouter({
@@ -220,6 +225,10 @@ const router = createRouter({
       return { top: 0 };
     }
   },
+});
+
+router.afterEach(() => {
+  window.scrollTo({ top: 0, behavior: "auto" });
 });
 
 export default router;
