@@ -33,23 +33,41 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
-
           <!-- Programs Dropdown (Desktop) -->
           <li
             class="nav-item dropdown position-relative"
             @mouseenter="isProgramsOpen = true"
             @mouseleave="isProgramsOpen = false"
           >
-            <router-link class="nav-link dropdown-toggle" to="/programs"
-              >Programs</router-link
-            >
+            <router-link
+              class="nav-link dropdown-toggle d-flex align-items-center gap-1"
+              to="/programs"
+              >Programs
+              <i
+                :class="
+                  isProgramsOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'
+                "
+              ></i
+            ></router-link>
             <ul class="dropdown-menu show" v-show="isProgramsOpen">
               <li
                 class="dropdown-submenu"
                 @mouseenter="openSubmenu = 'waec'"
                 @mouseleave="openSubmenu = null"
               >
-                <a href="#" class="dropdown-item">WAEC</a>
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
+                  WAEC
+                  <i
+                    :class="
+                      openSubmenu === 'waec'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </a>
                 <ul
                   class="dropdown-menu nested"
                   v-show="openSubmenu === 'waec'"
@@ -76,7 +94,19 @@
                 @mouseenter="openSubmenu = 'neco'"
                 @mouseleave="openSubmenu = null"
               >
-                <a href="#" class="dropdown-item">NECO</a>
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
+                  NECO
+                  <i
+                    :class="
+                      openSubmenu === 'neco'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </a>
                 <ul
                   class="dropdown-menu nested"
                   v-show="openSubmenu === 'neco'"
@@ -103,7 +133,19 @@
                 @mouseenter="openSubmenu = 'jamb'"
                 @mouseleave="openSubmenu = null"
               >
-                <a href="#" class="dropdown-item">JAMB</a>
+                <a
+                  href="#"
+                  class="dropdown-item d-flex align-items-center justify-content-between"
+                >
+                  JAMB
+                  <i
+                    :class="
+                      openSubmenu === 'jamb'
+                        ? 'fas fa-chevron-right'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </a>
                 <ul
                   class="dropdown-menu nested"
                   v-show="openSubmenu === 'jamb'"
@@ -125,14 +167,20 @@
                   </li>
                 </ul>
               </li>
+
               <li>
                 <router-link class="dropdown-item" to="/programs"
                   >All Program</router-link
                 >
               </li>
+
+              <li>
+                <router-link class="dropdown-item" to="#"
+                  >All Courses</router-link
+                >
+              </li>
             </ul>
           </li>
-
           <li class="nav-item">
             <router-link class="nav-link" to="/about">About Us</router-link>
           </li>
@@ -141,278 +189,81 @@
           </li>
         </ul>
 
-        <!-- Auth Buttons -->
-        <div class="d-flex gap-2" v-if="!isLoggedIn">
-          <router-link class="btn btn-primary" to="/register"
-            >Sign Up</router-link
-          >
-          <router-link class="btn btn-outline-secondary" to="/login"
-            >Login</router-link
-          >
-        </div>
-
-        <div
-          class="d-flex gap-5 align-items-center justify-content-center"
-          v-else
-        >
-          <ul class="user-icons d-flex gap-3 m-0">
-            <li class="nav-item dropdown position-relative">
-              <div
-                class="dropdown-toggle position-relative"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-bell"></i>
-                <span
-                  class="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
-                  style="left: 30px"
-                >
-                  99+
-                </span>
-              </div>
-
-              <div
-                class="dropdown-menu dropdown-menu-end p-0"
-                style="
-                  width: 320px;
-                  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-                  top: 55px !important;
-                  overflow: hidden;
-                  border-radius: 0 !important;
-                "
-              >
-                <div
-                  class="border-bottom px-3 py-2 fw-bold overflow-hidden"
-                  style="background-color: #eee"
-                >
-                  Notifications
-                </div>
-
-                <div
-                  class="notifications-list"
-                  style="max-height: 260px; overflow-y: auto"
-                >
-                  <!-- Notification Item -->
-                  <div
-                    class="d-flex align-items-center px-3 py-2 border-bottom"
-                    v-for="notification in notifications"
-                    :key="notification.id"
-                  >
-                    <img
-                      :src="notification.image"
-                      class="me-2 rounded"
-                      width="40"
-                      height="40"
-                      :alt="notification.alt"
-                    />
-                    <div class="flex-grow-1">
-                      <div
-                        class="fw-bold text-truncate"
-                        style="max-width: 200px"
-                      >
-                        {{ notification.title }}
-                      </div>
-                      <div class="text-muted small">
-                        {{ notification.message }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-center py-2 bg-light fw-semibold border-top">
-                  <a
-                    href="#"
-                    onclick="clearNotifications()"
-                    class="text-decoration-none text-dark"
-                    >Clear All</a
-                  >
-                </div>
-              </div>
-            </li>
-
-            <li
-              class="wishlist-icon position-relative"
-              @click="router.push('/wishlist')"
-            >
-              <i class="bi bi-suit-heart"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              >
-                99+
-                <!-- <span class="visually-hidden">unread messages</span> -->
-              </span>
-            </li>
-
-            <li class="cart-icon position-relative">
-              <i class="bi bi-cart3"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              >
-                99+
-                <!-- <span class="visually-hidden">unread messages</span> -->
-              </span>
-            </li>
-          </ul>
-
-          <div class="d-flex gap-2 position-relative">
-            <div
-              class="dropdown-toggle position-relative"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <div class="dropdown-header">
-                <div class="user-img">
-                  <img
-                    src="https://cdn.whu.edu/fileadmin/_processed_/8/1/csm_AdobeStock_215844325_ba2ab1eb3c.jpg"
-                    alt="User"
-                  />
-                </div>
-                <div class="user-info">
-                  <div class="name fs-6 fw-semibold">
-                    {{ user.firstName }} {{ user.lastName }}
-                    <span
-                      ><img
-                        style="width: 15px; height: 15px"
-                        src="https://img.icons8.com/material-rounded/24/chevron-down.png"
-                        alt="chevron-down"
-                    /></span>
-                  </div>
-
-                  <!-- <div class="email">user@mediacity.co.in</div> -->
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="dropdown-menu dropdown-menu-end p-0"
-              style="
-                width: 320px;
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-                top: 55px !important;
-                right: 0 !important;
-                left: auto !important;
-                overflow: hidden;
-                border-radius: 0 !important;
-              "
-            >
-              <div
-                class="border-bottom p-3 fw-bold overflow-hidden"
-                style="background-color: #e2dee2"
-              >
-                <!-- Profile Header -->
-                <div class="dropdown-header">
-                  <img
-                    src="https://cdn.whu.edu/fileadmin/_processed_/8/1/csm_AdobeStock_215844325_ba2ab1eb3c.jpg"
-                    alt="User"
-                    style="width: 50px; height: 50px; border-radius: 50%"
-                  />
-                  <div class="user-info">
-                    <div class="name fs-4">
-                      {{ user.firstName }} {{ user.lastName }}
-                    </div>
-                    <div class="email">{{ user.email }}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="notifications-list"
-                style="max-height: 260px; overflow-y: auto"
-              >
-                <!-- Profile links -->
-                <div
-                  class="p-links d-flex align-items-center border-bottom"
-                  v-for="profileItem in profileItems"
-                  :key="profileItem.id"
-                  @click="router.push(profileItem.router)"
-                >
-                  <div class="dropdown-item px-4 py-3">
-                    <i>{{ profileItem.icon }}</i> {{ profileItem.label }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="text-center py-2 bg-light fw-semibold border-top">
-                <div
-                  @click="userStore.logoutUser(router)"
-                  class="text-decoration-none text-dark"
-                  style="cursor: pointer"
-                >
-                  Logout
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Action buttons -->
+        <div class="d-flex gap-3">
+          <router-link class="btn btn-primary">Login</router-link>
+          <router-link class="btn btn-primary">Register</router-link>
         </div>
       </div>
     </div>
 
     <!-- Mobile Menu -->
+    <!-- Mobile Menu -->
     <transition name="slide">
-      <div v-if="isMobileMenuOpen" class="mobile-nav">
-        <button class="close-btn" @click="toggleMobileMenu">&times;</button>
-        <ul class="navbar-nav">
-          <li>
+      <div v-if="isMobileMenuOpen" class="mobile-nav d-lg-none">
+        <button class="close-btn" @click="toggleMobileMenu">×</button>
+        <ul class="navbar-nav d-flex flex-column gap-3 mt-4">
+          <li class="nav-item">
             <router-link class="nav-link" to="/" @click="toggleMobileMenu"
               >Home</router-link
             >
           </li>
-          <li>
-            <router-link class="nav-link" to="/about" @click="toggleMobileMenu"
-              >About Us</router-link
+
+          <!-- Programs (Mobile) -->
+          <li class="nav-item">
+            <div
+              class="nav-link d-flex justify-content-between align-items-center"
+              @click="isProgramsOpenMobile = !isProgramsOpenMobile"
             >
-          </li>
-          <li>
-            <router-link
-              class="nav-link"
-              to="/contact"
-              @click="toggleMobileMenu"
-              >Contact Us</router-link
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link"
-              @click.prevent="isProgramsOpenMobile = !isProgramsOpenMobile"
-              >Programs</a
-            >
-            <ul v-show="isProgramsOpenMobile" class="dropdown-menu static">
+              Programs
+              <i
+                :class="
+                  isProgramsOpenMobile
+                    ? 'fas fa-chevron-up'
+                    : 'fas fa-chevron-down'
+                "
+              ></i>
+            </div>
+
+            <ul v-show="isProgramsOpenMobile" class="ps-3 mt-2">
+              <!-- WAEC -->
               <li>
-                <a
-                  href="#"
-                  class="dropdown-item"
-                  @click.prevent="
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
                     openSubmenuMobile =
                       openSubmenuMobile === 'waec' ? null : 'waec'
                   "
-                  >WAEC</a
                 >
-                <ul
-                  v-show="openSubmenuMobile === 'waec'"
-                  class="dropdown-menu static ps-3"
-                >
+                  WAEC
+                  <i
+                    :class="
+                      openSubmenuMobile === 'waec'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'waec'" class="ps-3">
                   <li>
                     <router-link
-                      class="dropdown-item"
-                      to="#"
+                      class="nav-link"
+                      to="/checkComponent"
                       @click="toggleMobileMenu"
                       >WAEC Registration</router-link
                     >
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
-                      to="#"
+                      class="nav-link"
+                      to="/createComponent"
                       @click="toggleMobileMenu"
                       >WAEC Tutorial</router-link
                     >
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >WAEC Mock</router-link
@@ -420,23 +271,29 @@
                   </li>
                 </ul>
               </li>
+
+              <!-- NECO -->
               <li>
-                <a
-                  href="#"
-                  class="dropdown-item"
-                  @click.prevent="
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
                     openSubmenuMobile =
                       openSubmenuMobile === 'neco' ? null : 'neco'
                   "
-                  >NECO</a
                 >
-                <ul
-                  v-show="openSubmenuMobile === 'neco'"
-                  class="dropdown-menu static ps-3"
-                >
+                  NECO
+                  <i
+                    :class="
+                      openSubmenuMobile === 'neco'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'neco'" class="ps-3">
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >NECO Registration</router-link
@@ -444,7 +301,7 @@
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >NECO Tutorial</router-link
@@ -452,7 +309,7 @@
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >NECO Mock</router-link
@@ -460,23 +317,29 @@
                   </li>
                 </ul>
               </li>
+
+              <!-- JAMB -->
               <li>
-                <a
-                  href="#"
-                  class="dropdown-item"
-                  @click.prevent="
+                <div
+                  class="nav-link d-flex justify-content-between"
+                  @click="
                     openSubmenuMobile =
                       openSubmenuMobile === 'jamb' ? null : 'jamb'
                   "
-                  >JAMB</a
                 >
-                <ul
-                  v-show="openSubmenuMobile === 'jamb'"
-                  class="dropdown-menu static ps-3"
-                >
+                  JAMB
+                  <i
+                    :class="
+                      openSubmenuMobile === 'jamb'
+                        ? 'fas fa-chevron-up'
+                        : 'fas fa-chevron-down'
+                    "
+                  ></i>
+                </div>
+                <ul v-show="openSubmenuMobile === 'jamb'" class="ps-3">
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >JAMB Registration</router-link
@@ -484,7 +347,7 @@
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >JAMB Tutorial</router-link
@@ -492,7 +355,7 @@
                   </li>
                   <li>
                     <router-link
-                      class="dropdown-item"
+                      class="nav-link"
                       to="#"
                       @click="toggleMobileMenu"
                       >JAMB CBT</router-link
@@ -500,40 +363,30 @@
                   </li>
                 </ul>
               </li>
+
+              <!-- All Courses -->
               <li>
-                <router-link
-                  class="dropdown-item"
-                  to="#"
-                  @click="toggleMobileMenu"
+                <router-link class="nav-link" to="#" @click="toggleMobileMenu"
                   >All Courses</router-link
                 >
               </li>
             </ul>
           </li>
-        </ul>
-        <div class="d-flex gap-2 mt-3" v-if="!isLoggedIn">
-          <router-link
-            class="btn btn-primary"
-            to="/register"
-            @click="toggleMobileMenu"
-            >Sign Up</router-link
-          >
-          <router-link
-            class="btn btn-outline-secondary"
-            to="/login"
-            @click="toggleMobileMenu"
-            >Login</router-link
-          >
-        </div>
 
-        <div class="d-flex gap-2 mt-3" v-else>
-          <router-link
-            class="btn btn-primary"
-            to="/logout"
-            @click="userStore.logoutUser()"
-            >Logout</router-link
-          >
-        </div>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/about" @click="toggleMobileMenu"
+              >About Us</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/contact"
+              @click="toggleMobileMenu"
+              >Contact Us</router-link
+            >
+          </li>
+        </ul>
       </div>
     </transition>
   </nav>

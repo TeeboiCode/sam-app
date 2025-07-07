@@ -10,9 +10,14 @@ import notice from "../views/notice.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgetPassword from "../views/ForgetPassword.vue";
+
 import RaufTask from "../components/TaskFolder/RaufTask.vue";
 import RaufTask2 from "../components/TaskFolder/RaufTask2.vue";
 import RaufTask3 from "../components/TaskFolder/RaufTask3.vue";
+import RaufTask4 from "../components/TaskFolder/RaufTask4.vue";
+import RaufTask5 from "../components/TaskFolder/RaufTask5.vue";
+import RaufTask6 from "../components/TaskFolder/RaufTask6.vue";
+
 
 import SeunTask from "../components/TaskFolder/SeunTask.vue";
 import SeunTask2 from "../components/TaskFolder/SeunTask2.vue";
@@ -108,6 +113,22 @@ const routes = [
     name: "RaufTask3",
     component: () => import("@/components/TaskFolder/RaufTask3.vue"),
   },
+  {
+    path: "/rauf4",
+    name: "RaufTask4",
+    component: () => import("@/components/TaskFolder/RaufTask4.vue"),
+  },
+    {
+    path: "/rauf5",
+    name: "RaufTask5",
+    component: () => import("@/components/TaskFolder/RaufTask5.vue"),
+  },
+  {
+    path: "/rauf6",
+    name: "RaufTask6",
+    component: () => import("@/components/TaskFolder/RaufTask6.vue"),
+  },
+  
   {
     path: "/seun",
     name: "SeunTask",

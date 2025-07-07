@@ -19,6 +19,8 @@
 
 <script setup>
 import { onMounted, nextTick } from "vue";
+// import linkeVue from "./components/linksfiles.vue/linke.vue";
+
 import FooterVue from "./components/footer/Footer.vue";
 import NavigationVue from "./views/Navigation.vue";
 
