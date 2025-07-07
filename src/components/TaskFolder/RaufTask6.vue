@@ -1,29 +1,58 @@
 <template>
-  <div class="card-wrapper">
-    <div class="course-card">
-      <div class="card-img">
-        <img :src="course.image" alt="Course Image" />
-        <div class="price-overlay">₦{{ course.price }}</div>
+  <div class="container py-4 bg-light bg-gradient">
+    <div
+      class="card shadow-lg rounded-4 overflow-hidden mx-auto flex-column flex-md-row d-flex"
+      style="max-width: 600px"
+    >
+      <!-- Image Section -->
+      <div
+        class="position-relative flex-shrink-0 w-100 w-md-auto"
+        style="max-width: 100%; flex: 0 0 180px"
+      >
+        <img
+          :src="course.image"
+          alt="Course Image"
+          class="w-100 h-100"
+          style="object-fit: cover; display: block"
+        />
+        <div
+          class="position-absolute bottom-0 start-0 m-2 px-2 py-1 bg-dark text-white rounded small fw-semibold"
+        >
+          ₦{{ course.price }}
+        </div>
       </div>
 
-      <div class="card-body">
-        <h5 class="course-title">{{ course.title }}</h5>
+      <!-- Card Body -->
+      <div class="card-body d-flex flex-column justify-content-between">
+        <div>
+          <h5 class="card-title fw-bold mb-2">{{ course.title }}</h5>
 
-        <div class="course-meta">
-          <span><i class="fas fa-book"></i> {{ course.lessons }} lesson</span>
-          <span><i class="fas fa-user"></i> {{ course.students }} Student</span>
+          <div class="text-muted small mb-2">
+            <span class="me-3"
+              ><i class="fas fa-book me-1"></i>{{ course.lessons }} lesson</span
+            >
+            <span
+              ><i class="fas fa-user me-1"></i
+              >{{ course.students }} Student</span
+            >
+          </div>
+
+          <p class="card-text text-secondary small mb-3">
+            {{ course.description }}
+          </p>
         </div>
 
-        <p class="course-description">
-          {{ course.description }}
-        </p>
-
-        <div class="card-footer">
-          <div class="admin-info">
-            <img src="/src/assets/graduate.png" alt="Admin" />
-            <span>{{ course.admin }}</span>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <img
+              src="/src/assets/graduate.png"
+              alt="Admin"
+              class="rounded-circle me-2"
+              style="width: 28px; height: 28px"
+            />
+            <small class="text-muted">{{ course.admin }}</small>
           </div>
-          <button class="learn-more">
+          <button class="btn btn-link text-primary fw-semibold p-0">
             Learn More →
           </button>
         </div>
@@ -38,7 +67,7 @@ export default {
   data() {
     return {
       course: {
-        image: "/src/assets/graduate.png", // Replace with your actual image
+        image: "/src/assets/graduate.png",
         title: "Digital Skills",
         lessons: 35,
         students: 1,
@@ -51,101 +80,8 @@ export default {
   },
 };
 </script>
-
 <style scoped>
-.card-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  background: linear-gradient(to right, #ece2ff, #f5f4ff); /* Matches your gradient */
-}
-
-.course-card {
-  width: 100%;
-  max-width: 600px;
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-
-.card-img {
-  position: relative;
-  flex: 0 0 180px;
-  overflow: hidden;
-}
-.card-img img {
-  height: 100%;
-  width: 100%;
+.object-fit-cover {
   object-fit: cover;
-}
-.price-overlay {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: #000;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: 600;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-
-.card-body {
-  flex: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.course-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #000;
-}
-
-.course-meta {
-  font-size: 0.85rem;
-  color: #888;
-  margin-bottom: 10px;
-}
-.course-meta span {
-  margin-right: 15px;
-}
-
-.course-description {
-  font-size: 0.87rem;
-  color: #444;
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.admin-info {
-  display: flex;
-  align-items: center;
-}
-.admin-info img {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-.learn-more {
-  background: none;
-  border: none;
-  color: #5a48f4;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 </style>
