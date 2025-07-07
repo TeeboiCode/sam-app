@@ -24,7 +24,7 @@ import SATTutorialImg from "@/assets/styles/images/SAT-Tutorial-Img.jpg";
 
 import BaseHeroSection from "@/components/ui/BaseHeroSection.vue";
 import BaseCard05 from "@/components/ui/BaseCard05.vue";
-import {onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useProgramsStore } from "@/stores/programStore";
 
 const programStore = useProgramsStore();
@@ -36,10 +36,6 @@ onMounted(async () => {
 });
 
 const pageTitle = "All Programs";
-
-
-
-
 </script>
 
 <style scoped>

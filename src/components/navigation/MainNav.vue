@@ -40,8 +40,8 @@
             @mouseenter="isProgramsOpen = true"
             @mouseleave="isProgramsOpen = false"
           >
-            <a href="#" class="nav-link dropdown-toggle" @click.prevent
-              >Programs</a
+            <router-link class="nav-link dropdown-toggle" to="/programs"
+              >Programs</router-link
             >
             <ul class="dropdown-menu show" v-show="isProgramsOpen">
               <li
@@ -126,8 +126,8 @@
                 </ul>
               </li>
               <li>
-                <router-link class="dropdown-item" to="#"
-                  >All Courses</router-link
+                <router-link class="dropdown-item" to="/programs"
+                  >All Program</router-link
                 >
               </li>
             </ul>

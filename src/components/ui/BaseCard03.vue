@@ -20,7 +20,7 @@
         {{ course.description }}
       </p>
 
-      <a href="#" class="link-container"
+      <router-link to="#" class="link-container"
         >Read More
         <span
           ><img
@@ -28,7 +28,7 @@
             height="20"
             src="https://img.icons8.com/sf-black-filled/20/7b0e75/double-right.png"
             alt="double-right" /></span
-      ></a>
+      ></router-link>
     </div>
   </div>
 </template>

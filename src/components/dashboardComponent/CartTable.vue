@@ -1,17 +1,25 @@
 <template>
-  <div class="cart-wrapper">
-    <div class="cart-main">
+  <section class="section">
+    <div class="container">
       <div class="cart-content">
         <!-- Course List -->
-        <div class="core">
-          <div class="cart-header">
-            <h3>8 Courses in Cart</h3>
-            <div class="cart-options">
-              <button class="currency-btn">
-                INR <i class="fas fa-angle-down"></i>
-              </button>
-            </div>
+        <!-- <div class="p-3" style="background-color: var(--medium-purple)"> -->
+        <div
+          class="p-3"
+          style="
+            background-color: var(--light-lavender);
+            box-shadow: var(--shadow-sm);
+          "
+        >
+          <div class="cart-header pt-3">
+            <h2 class="section-subtitle mx-0 px-3">8 Courses in Cart</h2>
           </div>
+
+          <hr
+            class="style-six mt-5"
+            style="background-color: var(--text-muted)"
+          />
+
           <div class="course-list">
             <div
               class="course-item"
@@ -68,7 +76,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -122,21 +130,10 @@ const courses = [
 </script>
 
 <style scoped>
-.cart-wrapper {
-  padding: 2rem;
-  background: #fff;
-}
-
-.cart-main {
-  max-width: 1100px;
-  margin: auto;
-}
-
 .cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.4rem;
 }
 
 .cart-header h3 {
@@ -151,7 +148,7 @@ const courses = [
 
 .toggle-btn,
 .currency-btn {
-  background-color: #ff7350;
+  background-color: var(--royal-purple);
   border: none;
   color: white;
   padding: 6px 12px;
@@ -162,16 +159,14 @@ const courses = [
 .cart-content {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
   flex-wrap: wrap;
 }
 
 /* Left side: Course List */
 .course-list {
   flex: 2;
-  background: #f3f8ff;
+  /* background: #f3f8ff; */
   padding: 1rem;
-  border-radius: 8px;
 }
 
 .course-item {
@@ -225,7 +220,7 @@ const courses = [
 }
 
 .wishlist {
-  color: #ff7350;
+  color: var(--royal-purple);
 }
 
 .pricing {
@@ -247,10 +242,10 @@ const courses = [
 /* Right side: Summary */
 .summary {
   flex: 1;
-  background: #f3f8ff;
+  background: var(--light-lavender);
+  box-shadow: var(--shadow-sm);
   height: fit-content;
   padding: 1.3rem;
-  border-radius: 8px;
   min-width: 250px;
 }
 
@@ -268,7 +263,7 @@ const courses = [
 }
 
 .apply-coupon {
-  color: #ff7350;
+  color: var(--royal-purple);
   font-weight: bold;
 }
 
@@ -297,7 +292,7 @@ hr {
 }
 
 .coupon-field button {
-  background: #ff7350;
+  background: var(--royal-purple);
   border: none;
   color: white;
   padding: 8px 16px;
@@ -308,8 +303,8 @@ hr {
 .checkout-btn {
   width: 100%;
   margin-top: 1rem;
-  background-color: #ff7350;
-  color: white;
+  background-color: var(--royal-purple);
+  color: var(--soft-purple);
   padding: 12px;
   border: none;
   border-radius: 5px;

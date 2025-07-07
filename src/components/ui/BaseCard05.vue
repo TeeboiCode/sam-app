@@ -4,7 +4,7 @@
       <div
         class="placeholder-image"
         :style="{
-          background: `linear-gradient(rgba(107, 70, 193, 0.2), rgba(85, 60, 154, 0.3)), url('${card.imageClass}') center/cover no-repeat`,
+          background: `linear-gradient(rgba(107, 70, 193, 0.2), rgba(85, 60, 154, 0.3)), url('${API_URL}/${card.image_url}') center/cover no-repeat`,
         }"
       ></div>
     </div>
@@ -18,7 +18,7 @@
         </span>
         <div class="tutor-rating t-r">
           <i class="bi bi-star-fill"></i>
-          <span>{{ card.rating }}</span>
+          <span>{{ card.rate }}</span>
         </div>
       </div>
       <h3 class="program-title">{{ card.title }}</h3>
@@ -28,7 +28,7 @@
       >
         <div class="stat-item">
           <i class="bi bi-book"></i>
-          <span>{{ card.subjects }}</span>
+          <span>Subjects {{ card.subject_count }}</span>
         </div>
         <div class="stat-item">
           <i class="bi bi-calendar-week"></i>
@@ -45,7 +45,15 @@
             <span>by Samcy</span>
           </div>
           <div class="program-btn-container">
-            <button class="btn btn-primary enroll-btn">Enrol Now</button>
+             <router-link to="#" class="link-container"
+        >Read More
+        <span
+          ><img
+            width="20"
+            height="20"
+            src="https://img.icons8.com/sf-black-filled/20/7b0e75/double-right.png"
+            alt="double-right" /></span
+      ></router-link>
           </div>
         </div>
       </div>
@@ -55,6 +63,7 @@
 
 <script setup>
 import { defineProps } from "vue";
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const props = defineProps({
   card: {

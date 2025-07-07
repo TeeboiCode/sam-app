@@ -43,7 +43,7 @@ const route = useRoute();
 const isWishlist = computed(() => route.path.includes("wishlist"));
 
 const pageTitle = computed(() => {
-  return isWishlist.value ? "Wishlist" : "My Courses";
+  return isWishlist.value ? "Wishlist" : "My Programs";
 });
 
 const allCourses = [
