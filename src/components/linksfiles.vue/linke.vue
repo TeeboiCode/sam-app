@@ -8,7 +8,7 @@
       >notice</router-link
     >
 
-    <router-link class="btn btn-primary" to="/rauf" role="button"
+    <!-- <router-link class="btn btn-primary" to="/rauf" role="button"
       >Rauf Task</router-link
     >
     <router-link class="btn btn-primary" to="/rauf2" role="button"
@@ -25,7 +25,7 @@
     >
     <router-link class="btn btn-primary" to="/rauf6" role="button"
       >Rauf Task6</router-link
-    >
+    > -->
     
     
 
