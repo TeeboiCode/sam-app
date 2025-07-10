@@ -47,6 +47,11 @@
               class="btn btn-light btn-lg pulse-btn"
               v-else
             >
+
+
+
+
+              
               Go To My Courses
               <i class="bi bi-arrow-right ms-2 btn-icon"></i>
             </router-link>
